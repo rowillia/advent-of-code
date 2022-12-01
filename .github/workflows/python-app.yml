@@ -31,8 +31,8 @@ jobs:
       - name: Change poetry version
         working-directory: ./python
         run: |
+          rm ./python/poetry.toml
           poetry env use python3.11
-          poetry config virtualenvs.in-project false --local
 
       - name: Install Dependencies
         working-directory: ./python
