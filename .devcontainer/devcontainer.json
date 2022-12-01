@@ -1,6 +1,6 @@
 {
-    "name": "rust-devcontainer",
-    "image": "mcr.microsoft.com/devcontainers/rust:latest",
-    "postCreateCommand": "rustc --version",
+    "name": "python311-devcontainer",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+    "postCreateCommand": "python3 --version",
     "remoteUser": "vscode"
 }
