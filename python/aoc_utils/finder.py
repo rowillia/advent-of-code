@@ -9,7 +9,7 @@ from typing import List
 class Day:
     day_number: int
     module: ModuleType
-    solution_input: str
+    solution_input: str | None
     example_input: str
     example_answers: List[str]
 
@@ -34,7 +34,10 @@ def get_days() -> List[Day]:
         example_answers = (
             (examples_path / f"{day_number}_answer.txt").read_text().splitlines()
         )
-        solution_input = (inputs / f"{day_number}.txt").read_text()
+        solution_input = None
+        solution_path = inputs / f"{day_number}.txt"
+        if solution_path.exists():
+            solution_input = solution_path.read_text()
 
         days.append(
             Day(int(day_number), module, solution_input, example_input, example_answers)
