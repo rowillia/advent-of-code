@@ -19,11 +19,19 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Install poetry
+        run: pipx install poetry
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v3
         with:
           python-version: 3.11-dev
           cache: 'poetry'
+
+      - name: Change poetry version
+        working-directory: ./python
+        run: |
+          poetry env use python3.11
 
       - name: Install Dependencies
         working-directory: ./python
