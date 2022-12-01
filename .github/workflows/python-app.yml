@@ -29,17 +29,14 @@ jobs:
           cache: 'poetry'
 
       - name: Change poetry version
-        working-directory: ./python
         run: |
           rm ./poetry.toml
           poetry env use python3.11
 
       - name: Install Dependencies
-        working-directory: ./python
         run: poetry install
 
       - name: Code Quality
-        working-directory: ./python
         run: |
           poetry check
           poetry run black --exclude .venv . --check
@@ -47,6 +44,5 @@ jobs:
           poetry run flake8 .
 
       - name: Unit Tests
-        working-directory: ./python
         run: |
-          poetry run python -m pytest
+          poetry run pytest python
