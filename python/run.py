@@ -9,7 +9,7 @@ from aoc_utils.finder import get_days
 
 
 @click.group()
-def cli():
+def cli() -> None:
     pass
 
 
