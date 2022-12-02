@@ -12,15 +12,11 @@ def split_on_value(stream: Iterable[str], break_value: str = "") -> Iterable[Lis
     yield buffer
 
 
-def part1(text: str) -> str:
-    return str(max([sum(x) for x in split_on_value(text.splitlines())]))
+def part1(text: str) -> int | None:
+    return max([sum(x) for x in split_on_value(text.splitlines())])
 
 
-def part2(text: str) -> str:
-    return str(
-        sum(
-            sorted([sum(x) for x in split_on_value(text.splitlines())], reverse=True)[
-                :3
-            ]
-        )
+def part2(text: str) -> int | None:
+    return sum(
+        sorted([sum(x) for x in split_on_value(text.splitlines())], reverse=True)[:3]
     )
