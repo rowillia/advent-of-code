@@ -15,7 +15,7 @@ def cli() -> None:
 
 @cli.command()
 @click.option("--day", default=None, help="Day to run, defaults to latest", type=int)
-def run(day: int | None) -> None:
+def solve(day: int | None) -> None:
     days = get_days()
 
     if day:
@@ -38,6 +38,10 @@ def run(day: int | None) -> None:
 def scaffold(day: int | None) -> None:
     day = day or datetime.now(ZoneInfo("America/New_York")).day
     session_cookie = os.getenv("ADVENT_SESSION_COOKIE", "")
+    session_file = Path.home() / ".adventofcode.session"
+    if not session_cookie and session_file.exists():
+        session_cookie = session_file.read_text()
+
     if session_cookie:
         day_input = requests.get(
             f"https://adventofcode.com/2022/day/{day}/input",
@@ -51,11 +55,11 @@ def scaffold(day: int | None) -> None:
     solution_file = project_dir / "solutions" / f"day{day:02d}.py"
     if not solution_file.exists():
         solution_file.write_text(
-            """def part1(text: str) -> int | None:
+            """def part1(text: str) -> str | None:
     return None
 
 
-def part2(text: str) -> int | None:
+def part2(text: str) -> str | None:
     return None
 """
         )

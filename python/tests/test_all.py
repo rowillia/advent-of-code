@@ -8,4 +8,4 @@ def pytest_generate_tests(metafunc: Any) -> None:
 
 def test_day(day: Day) -> None:
     for part, answer in enumerate(day.example_answers):
-        assert getattr(day.module, f"part{part + 1}")(day.example_input) == answer
+        assert str(getattr(day.module, f"part{part + 1}")(day.example_input)) == answer
