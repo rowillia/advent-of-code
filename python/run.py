@@ -51,14 +51,13 @@ def scaffold(day: int | None) -> None:
     solution_file = project_dir / "solutions" / f"day{day:02d}.py"
     if not solution_file.exists():
         solution_file.write_text(
-            """
-def part1(text: str) -> int | None:
-    return ''
+            """def part1(text: str) -> int | None:
+    return None
 
 
 def part2(text: str) -> int | None:
-    return ''
-    """
+    return None
+"""
         )
     (project_dir / "examples" / f"{day:02d}.txt").touch()
     (project_dir / "examples" / f"{day:02d}_answer.txt").touch()
