@@ -27,10 +27,10 @@ def solve(day: int | None) -> None:
 
     print(f"🎄 Advent of Code: Day {current_day.day_number} 🎄")
     part1_answer = getattr(current_day.module, "part1")(current_day.solution_input)
-    print(f"\t Part 1: {part1_answer}")
+    print(f"Part 1:\n{part1_answer}\n\n")
     part2_answer = getattr(current_day.module, "part2")(current_day.solution_input)
     if part1_answer is not None:
-        print(f"\t Part 2: {part2_answer}")
+        print(f"Part 2:\n{part2_answer}")
 
 
 @cli.command()

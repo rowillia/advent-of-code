@@ -31,9 +31,10 @@ def get_days() -> List[Day]:
         spec.loader.exec_module(module)
 
         example_input = (examples_path / f"{day_number}.txt").read_text()
-        example_answers = (
-            (examples_path / f"{day_number}_answer.txt").read_text().splitlines()
-        )
+        answers_text = (examples_path / f"{day_number}_answer.txt").read_text()
+        example_answers = answers_text.splitlines()
+        if len(example_answers) > 2:
+            example_answers = answers_text.split("\n\n")
         solution_input = None
         solution_path = inputs / f"{day_number}.txt"
         if solution_path.exists():
