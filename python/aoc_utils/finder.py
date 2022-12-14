@@ -22,6 +22,8 @@ def get_days() -> List[Day]:
     inputs = project_path / "inputs"
     for py_file in solutions_path.glob("*.py"):
         day_number = py_file.name[-5:-3]
+        if not day_number.isnumeric():
+            continue
         spec = util.spec_from_file_location("", py_file)
         if not spec:
             raise Exception(f"Unable to load module {py_file}")

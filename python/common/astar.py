@@ -1,4 +1,4 @@
-from common.priority_queue import PriorityQueue
+from python.common.priority_queue import PriorityQueue
 
 from typing import Callable, Dict, List, Tuple, TypeVar
 

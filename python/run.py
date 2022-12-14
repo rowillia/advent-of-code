@@ -5,7 +5,7 @@ from zoneinfo import ZoneInfo
 
 import click
 import requests
-from aoc_utils.finder import get_days
+from python.aoc_utils.finder import get_days
 
 
 @click.group()

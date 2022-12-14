@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Tuple
 
-from common.astar import astar
+from python.common.astar import astar
 
 
 @dataclass(frozen=True)
@@ -85,7 +85,6 @@ class HeightMap:
                 if shortest is None or len(candidate) < len(shortest):
                     shortest = candidate
             return shortest or []
-
         return astar(self.start, self.end, heuristic, neighbors)
 
 

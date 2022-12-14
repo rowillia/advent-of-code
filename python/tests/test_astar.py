@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from common.astar import astar
+from python.common.astar import astar
 
 
 def test_astar() -> None:

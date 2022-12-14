@@ -1,4 +1,4 @@
-from common.priority_queue import PriorityQueue
+from python.common.priority_queue import PriorityQueue
 
 
 def test_queue() -> None:

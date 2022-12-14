@@ -1,5 +1,5 @@
 from typing import Any
-from aoc_utils.finder import get_days, Day
+from python.aoc_utils.finder import get_days, Day
 
 
 def pytest_generate_tests(metafunc: Any) -> None:
