@@ -6,6 +6,7 @@ import math
 from typing import Dict, List, Tuple
 
 from python.common.point import Point
+from python.common.range_map import add_range
 
 
 DIRECTIONS = [Point(0, 1), Point(-1, 1), Point(1, 1)]
@@ -44,29 +45,7 @@ class SandPit:
         row = self.occupied[row_num]
         if row_num > self.bottom:
             self.bottom = row_num
-        insertion_point = bisect.bisect(row, col)
-        left: Tuple[float, float] | None = None
-        right: Tuple[float, float] | None = None
-        if insertion_point > 0:
-            left = row[insertion_point - 1]
-        if len(row) > insertion_point:
-            right = row[insertion_point]
-        if left and col[0] <= left[1] <= col[1]:
-            # Merge into left
-            left = (left[0], col[1])
-            if right and (right[0] <= left[1] <= right[1]):
-                # Merge right and left together
-                left = (left[0], right[1])
-                row[insertion_point - 1 : insertion_point + 1] = [left]
-                return
-            else:
-                row[insertion_point - 1 : insertion_point] = [left]
-                return
-        if right and col[0] <= right[0] <= col[1]:
-            right = (col[0], right[1])
-            row[insertion_point : insertion_point + 1] = [right]
-            return
-        row[insertion_point:insertion_point] = [col]
+        add_range(row, col)
 
     @classmethod
     def parse(cls, text: str, add_floor: bool = False) -> "SandPit":
