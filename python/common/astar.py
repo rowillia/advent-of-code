@@ -1,6 +1,6 @@
 from python.common.priority_queue import PriorityQueue
 
-from typing import Callable, Dict, List, Tuple, TypeVar
+from typing import Callable, Dict, Iterable, List, Tuple, TypeVar
 
 T = TypeVar("T")
 
@@ -9,7 +9,7 @@ def astar(
     start: T,
     end: T,
     heuristic: Callable[[T, T], int],
-    neighbors: Callable[[T], List[Tuple[T, int]]],
+    neighbors: Callable[[T], Iterable[Tuple[T, int]]],
 ) -> List[T]:
     open_list: PriorityQueue[T] = PriorityQueue()
     path: Dict[T, Tuple[T, int]] = {}
