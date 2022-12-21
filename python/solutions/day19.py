@@ -176,7 +176,18 @@ class State:
             else:
                 time_to_build = list(
                     sorted(
-                        [(x.time_to_build(target), x) for x in candidates],
+                        [
+                            (
+                                tuple(
+                                    [
+                                        (-1 * x.robots.get(t, 0), x.time_to_build(t))
+                                        for t in reversed(Resource)
+                                    ]
+                                ),
+                                x,
+                            )
+                            for x in candidates
+                        ],
                         key=lambda x: x[0],
                     )
                 )
