@@ -20,7 +20,10 @@ class PriorityQueue(Generic[T]):
 
     def push(self, item: T, priority: int) -> None:
         if item in self._entries:
-            self._entries[item].is_removed = True
+            existing_entry = self._entries[item]
+            if existing_entry.priority == priority:
+                return
+            existing_entry.is_removed = True
         envelope = PrioritizedItem(priority, item)
         self._entries[item] = envelope
         heappush(self._items, envelope)
@@ -35,6 +38,9 @@ class PriorityQueue(Generic[T]):
 
     def remove(self, item: T) -> None:
         self._entries[item].is_removed = True
+
+    def __contains__(self, item: T) -> bool:
+        return item in self._entries and not self._entries[item].is_removed
 
     def __bool__(self) -> bool:
         return bool(self._entries)

@@ -1,11 +1,15 @@
+import bisect
+from collections import defaultdict
 from dataclasses import dataclass
 from enum import Enum, auto
 from functools import cache, cached_property
 import math
 import re
-from typing import Iterable, Set, Tuple
+from typing import Dict, Iterable, List, Set, Tuple
 
 import immutables
+
+from python.common.priority_queue import PriorityQueue
 
 
 ROBOT_RE = re.compile(r"Each (\w+) robot costs ([\w\d\s]+).?")
@@ -18,23 +22,24 @@ class Resource(Enum):
     GEODE = auto()
 
 
-@cache
 def join_maps(
     a: immutables.Map[Resource, int], b: immutables.Map[Resource, int]
 ) -> immutables.Map[Resource, int]:
     result = a.mutate()
     for r, v in b.items():
-        result[r] = result.get(r, 0) + v
+        result[r] = a.get(r, 0) + v
     return result.finish()
 
 
-@cache
 def diff_maps(
     a: immutables.Map[Resource, int], b: immutables.Map[Resource, int]
-) -> immutables.Map[Resource, int]:
+) -> immutables.Map[Resource, int] | None:
     result = a.mutate()
     for r, v in b.items():
-        result[r] = result.get(r, 0) - v
+        item = a.get(r, 0) - v
+        if item < 0:
+            return None
+        result[r] = item
     return result.finish()
 
 
@@ -78,31 +83,15 @@ class Blueprint:
     @cache
     def spend_resources(
         self, resources: immutables.Map[Resource, int]
-    ) -> Set[Tuple[immutables.Map[Resource, int], immutables.Map[Resource, int]]]:
-        result: Set[
-            Tuple[immutables.Map[Resource, int], immutables.Map[Resource, int]]
-        ] = set([(immutables.Map(), resources)])
-        for resource_type in reversed(Resource):
-            spent = resources.mutate()
-            valid = True
-            robot = self.robots[resource_type]
-            for resource, cost in robot.cost.items():
-                spent[resource] = spent.get(resource, 0) - cost
-                if spent[resource] < 0:
-                    valid = False
-                    break
-            if valid:
-                remaining = spent.finish()
-                children = self.spend_resources(remaining)
-                for child in children:
-                    result.add(
-                        (
-                            child[0].set(
-                                robot.robot_type, child[0].get(robot.robot_type, 0) + 1
-                            ),
-                            child[1],
-                        )
-                    )
+    ) -> Set[Tuple[Resource | None, immutables.Map[Resource, int]]]:
+        result: Set[Tuple[Resource | None, immutables.Map[Resource, int]]] = set(
+            [(None, resources)]
+        )
+        for robot in self.robots.values():
+            remaining_resources = diff_maps(resources, robot.cost)
+
+            if remaining_resources is not None:
+                result.add((robot.robot_type, remaining_resources))
         return result
 
 
@@ -112,6 +101,19 @@ class State:
     resources: immutables.Map[Resource, int]
     robots: immutables.Map[Resource, int]
     blueprint: Blueprint
+
+    def __lt__(self, other: "State") -> bool:
+        return (self.resource_count + self.robot_count) < (
+            other.resource_count + other.robot_count
+        )
+
+    @cached_property
+    def resource_count(self) -> int:
+        return sum(self.resources.values())
+
+    @cached_property
+    def robot_count(self) -> int:
+        return sum(self.robots.values())
 
     @cached_property
     def _hash(self) -> int:
@@ -126,115 +128,94 @@ class State:
             self.robots.get(resource, 0) * self.time_remaining
         )
 
-    @cache
-    def time_to_build(self, resource: Resource) -> float:
-        robot_cost = self.blueprint.robots[resource]
+    @cached_property
+    def potential(self) -> Tuple[int, int]:
         resources = self.resources
+        robots = self.robots
         for time in range(self.time_remaining):
-            diff = diff_maps(resources, robot_cost.cost)
-            if all(x > 0 for x in diff.values()):
-                return time
-            resources = join_maps(resources, self.robots)
-        return math.inf
+            old_robots = robots
+            for resource in reversed(Resource):
+                robot = self.blueprint.robots[resource]
+                diff = diff_maps(resources, robot.cost)
+                if diff is not None and self.time_remaining - time > 1:
+                    robots = robots.set(
+                        robot.robot_type, robots.get(robot.robot_type, 0) + 1
+                    )
+                    if robot.robot_type == Resource.GEODE:
+                        resources = diff
+                        break
+            resources = join_maps(resources, old_robots)
+        return resources.get(Resource.GEODE, 0), robots.get(
+            Resource.GEODE, 0
+        ) - self.robots.get(Resource.GEODE, 0)
 
     def progress(self) -> Iterable["State"]:
-        last = Resource.GEODE
-        target = Resource.GEODE
-        for resource in reversed(Resource):
-            if resource in self.robots:
-                target = last
-                break
-            last = resource
-
-        spend_nothing = State(
-            self.time_remaining - 1,
-            join_maps(self.robots, self.resources),
-            self.robots,
-            self.blueprint,
-        )
-
         if self.time_remaining > 0:
-            children = self.blueprint.spend_resources(self.resources)
-            has_target = []
-            candidates = []
-            for new_robots, remaining_resources in children:
-                new_state = State(
+            for robot_type, remaining in self.blueprint.spend_resources(self.resources):
+                new_robots = self.robots
+                if robot_type is not None:
+                    new_robots = new_robots.set(
+                        robot_type, self.robots.get(robot_type, 0) + 1
+                    )
+                next_state = State(
                     self.time_remaining - 1,
-                    join_maps(self.robots, remaining_resources),
-                    join_maps(new_robots, self.robots),
+                    join_maps(remaining, self.robots),
+                    new_robots,
                     self.blueprint,
                 )
-                if target in new_robots:
-                    has_target.append(new_state)
-                else:
-                    candidates.append(new_state)
-            if has_target:
-                if self.time_remaining == 1:
-                    yield has_target[0]
-                else:
-                    yield from has_target
-            else:
-                time_to_build = list(
-                    sorted(
-                        [
-                            (
-                                tuple(
-                                    [
-                                        (-1 * x.robots.get(t, 0), x.time_to_build(t))
-                                        for t in reversed(Resource)
-                                    ]
-                                ),
-                                x,
-                            )
-                            for x in candidates
-                        ],
-                        key=lambda x: x[0],
-                    )
-                )
-                min_time_to_build = time_to_build[0][0]
-                if min_time_to_build == math.inf:
-                    yield spend_nothing
-                else:
-                    yield from (
-                        y[1] for y in time_to_build if y[0] == min_time_to_build
-                    )
+                yield next_state
 
 
-def blueprint_quality(blueprint: Blueprint) -> int:
+def blueprint_quality(blueprint: Blueprint, time: int) -> int:
     closed: Set[State] = set()
-    open: Set[State] = {
-        State(24, immutables.Map(), immutables.Map([(Resource.ORE, 1)]), blueprint)
-    }
-    finished: Set[Tuple[int, int, int]] = set()
-    max_obsidian = 0
+    open: PriorityQueue[State] = PriorityQueue()
+    initial_state = State(
+        time, immutables.Map(), immutables.Map([(Resource.ORE, 1)]), blueprint
+    )
+    open.push(initial_state, -initial_state.potential[0])
+    finished = set()
+    geode_count = 0
+    priority_map: Dict[Tuple[int, int], List[State]] = defaultdict(list)
     while open:
         next_state = open.pop()
         for child in next_state.progress():
-            if (
-                Resource.GEODE in child.robots
-                and child.time_to_build(Resource.GEODE) == math.inf
-            ):
-                key = (
+            if child not in closed and child not in open:
+                potential, new_geod_bots = child.potential
+                finished_key = (
+                    child.robots.get(Resource.GEODE, 0),
                     child.resources.get(Resource.GEODE, 0),
-                    child.robots[Resource.GEODE],
                     child.time_remaining,
                 )
-                if key in finished:
-                    continue
-                finished.add(key)
-            if child not in closed and child not in open:
-                open.add(child)
+                if new_geod_bots == 0:
+                    if finished_key in finished:
+                        continue
+                    finished.add(finished_key)
+                geode_count = max(
+                    geode_count, child.existing_total_for_resource(Resource.GEODE)
+                )
+
+                if potential >= geode_count:
+                    same_priorities = priority_map[(potential, child.time_remaining)]
+                    idx = bisect.bisect_left(same_priorities, child)
+                    for prior_state in same_priorities[idx:]:
+                        if diff_maps(prior_state.robots, child.robots) and diff_maps(
+                            prior_state.resources, child.resources
+                        ):
+                            break
+                    else:
+                        open.push(child, -potential)
+                        bisect.insort(same_priorities, child)
         if next_state.time_remaining == 0:
-            if next_state.resources.get(Resource.GEODE, 0) > max_obsidian:
-                max_obsidian = next_state.resources[Resource.GEODE]
+            return geode_count
         closed.add(next_state)
-    return max_obsidian
+    return geode_count
 
 
 def part1(text: str) -> int | None:
     blueprints = [Blueprint.parse(line) for line in text.splitlines()]
-    return max(blueprint_quality(b) for b in blueprints)
+    return sum(blueprint_quality(b, 24) * b.blueprint_id for b in blueprints)
 
 
-def part2(text: str) -> str | None:
-    return None
+def part2(text: str) -> int | None:
+    blueprints = [Blueprint.parse(line) for line in text.splitlines()]
+    return math.prod(blueprint_quality(b, 32) for b in blueprints[:3])
