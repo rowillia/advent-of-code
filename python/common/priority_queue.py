@@ -24,6 +24,7 @@ class PriorityQueue(Generic[T]):
             if existing_entry.priority == priority:
                 return
             existing_entry.is_removed = True
+            item = existing_entry.item
         envelope = PrioritizedItem(priority, item)
         self._entries[item] = envelope
         heappush(self._items, envelope)

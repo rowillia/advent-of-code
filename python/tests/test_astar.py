@@ -1,4 +1,6 @@
-from typing import List, Tuple
+from typing import Tuple
+
+from pyparsing import Iterable
 from python.common.astar import astar
 
 
@@ -6,7 +8,7 @@ def test_astar() -> None:
     def heuristic(a: str, b: str) -> int:
         return abs(ord(a) - ord(b))
 
-    def neighbors(a: str) -> List[Tuple[str, int]]:
+    def neighbors(a: str) -> Iterable[Tuple[str, int]]:
         if a == "c":
             return [("d", 1), ("p", 1)]
         elif a == "s":
