@@ -36,7 +36,7 @@ def solve(day: int | None) -> None:
 @cli.command()
 @click.option("--day", default=None, help="Day to run, defaults to latest", type=int)
 def scaffold(day: int | None) -> None:
-    day = day or datetime.now(ZoneInfo("America/New_York")).day
+    day = min(25, day or datetime.now(ZoneInfo("America/New_York")).day)
     session_cookie = os.getenv("ADVENT_SESSION_COOKIE", "")
     session_file = Path.home() / ".adventofcode.session"
     if not session_cookie and session_file.exists():

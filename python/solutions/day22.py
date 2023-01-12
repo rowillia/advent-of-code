@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
 import re
-from typing import Dict, List, Set
+from typing import Dict, List
 from python.common.point import Point
 
 
@@ -25,42 +25,14 @@ class Direction(Enum):
         raise Exception("Invalid Direction")
 
 
-@dataclass
-class CubeFace:
-    neighbors: Dict[Direction, "CubeFace"]
+NET = [
+    ["..2.", "651.", "..43", "....", "...."],
+    [".6..", ".2..", "51..", "4...", "3..."],
+]
 
-    @property
-    def complete(self) -> bool:
-        for d in Direction:
-            if d not in self.neighbors:
-                return False
-            if not all(d1 not in self.neighbors[d].neighbors for d1 in Direction):
-                return False
-        return True
-
-    def fold(self, visited: Set[int]) -> None:
-        if id(self) in visited:
-            return
-        visited.add(id(self))
-        for direction in Direction:
-            right = direction.turn("R")
-            if direction in self.neighbors:
-                if (
-                    right in self.neighbors
-                    and right not in self.neighbors[direction].neighbors
-                ):
-                    print(f"Joining {direction.name} and {right.name}")
-                    self.neighbors[direction].neighbors[right] = self.neighbors[right]
-                    self.neighbors[right].neighbors[direction] = self.neighbors[
-                        direction
-                    ]
-        if self.complete:
-            print("Done")
-            return
-        for direction, neighbor in list(self.neighbors.items()):
-            print(f"Folding {direction.name}")
-            neighbor.fold(visited)
-
+CUBE_GRAPH = {
+    1: {Direction.UP: (2, 1), Direction.RIGHT: (3, -1), Direction.RIGHT: (3, -1)}
+}
 
 DIRECTION_TO_CHAR = {
     Direction.UP: "^",
@@ -189,19 +161,3 @@ def part1(text: str) -> int | None:
         + (4 * (end.location.x + 1))
         + DIRECTION_TO_VALUE[end.direction]
     )
-
-
-def part2(text: str) -> str | None:
-    faces = [CubeFace({}) for _ in range(6)]
-    faces[0].neighbors[Direction.DOWN] = faces[1]
-    faces[1].neighbors[Direction.UP] = faces[0]
-    faces[1].neighbors[Direction.RIGHT] = faces[2]
-    faces[2].neighbors[Direction.LEFT] = faces[1]
-    faces[1].neighbors[Direction.DOWN] = faces[3]
-    faces[3].neighbors[Direction.UP] = faces[1]
-    faces[3].neighbors[Direction.DOWN] = faces[4]
-    faces[4].neighbors[Direction.UP] = faces[3]
-    faces[1].neighbors[Direction.LEFT] = faces[5]
-    faces[5].neighbors[Direction.RIGHT] = faces[1]
-    faces[0].fold(set())
-    return None
