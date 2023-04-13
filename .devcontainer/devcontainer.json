@@ -18,7 +18,10 @@
     "ms-python.vscode-pylance",
     "lextudio.restructuredtext-pack",
     "visualstudioexptteam.vscodeintellicode",
-    "donjayamanne.python-extension-pack"
+    "donjayamanne.python-extension-pack",
+    "ms-azuretools.vscode-docker",
+    "GitHub.copilot",
+    "GitHub.copilot-labs"
   ],
   "settings": {
     "python.defaultInterpreterPath": "/workspaces/advent2022/.venv/bin/python",
