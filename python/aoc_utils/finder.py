@@ -14,12 +14,12 @@ class Day:
     example_answers: List[str]
 
 
-def get_days() -> List[Day]:
+def get_days(year: int) -> List[Day]:
     days: List[Day] = []
     project_path = Path(__file__).resolve().parent.parent
-    solutions_path = project_path / "solutions"
-    examples_path = project_path / "examples"
-    inputs = project_path / "inputs"
+    solutions_path = project_path / "solutions" / str(year)
+    examples_path = project_path.parent / "examples" / str(year)
+    inputs = project_path.parent / "inputs" / str(year)
     for py_file in solutions_path.glob("*.py"):
         day_number = py_file.name[-5:-3]
         if not day_number.isnumeric():

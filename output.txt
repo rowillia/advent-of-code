@@ -1,7 +1,0 @@
-🎄 Advent of Code: Day 24 🎄
-Part 1:
-170
-
-
-Part 2:
-None

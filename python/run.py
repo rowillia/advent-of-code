@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo
 
 import click
 import requests
+
 from python.aoc_utils.finder import get_days
 
 
@@ -15,8 +16,11 @@ def cli() -> None:
 
 @cli.command()
 @click.option("--day", default=None, help="Day to run, defaults to latest", type=int)
-def solve(day: int | None) -> None:
-    days = get_days()
+@click.option("--year", default=None, help="Year to run, defaults to latest", type=int)
+def solve(day: int | None, year: int | None = None) -> None:
+    now = datetime.now(ZoneInfo("America/New_York"))
+    year = year or now.year
+    days = get_days(year)
 
     if day:
         current_day = next((x for x in days if x.day_number == day), None)
@@ -25,18 +29,21 @@ def solve(day: int | None) -> None:
     else:
         current_day = days[-1]
 
-    print(f"🎄 Advent of Code: Day {current_day.day_number} 🎄")
-    part1_answer = getattr(current_day.module, "part1")(current_day.solution_input)
+    print(f"🎄 Advent of Code {year}: Day {current_day.day_number} 🎄")
+    part1_answer = current_day.module.part1(current_day.solution_input)
     print(f"Part 1:\n{part1_answer}\n\n")
-    part2_answer = getattr(current_day.module, "part2")(current_day.solution_input)
     if part1_answer is not None:
+        part2_answer = current_day.module.part2(current_day.solution_input)
         print(f"Part 2:\n{part2_answer}")
 
 
 @cli.command()
 @click.option("--day", default=None, help="Day to run, defaults to latest", type=int)
-def scaffold(day: int | None) -> None:
-    day = min(25, day or datetime.now(ZoneInfo("America/New_York")).day)
+@click.option("--day", default=None, help="Year to run, defaults to latest", type=int)
+def scaffold(day: int | None, year: int | None) -> None:
+    now = datetime.now(ZoneInfo("America/New_York"))
+    day = min(25, day or now.day)
+    year = year or now.year
     session_cookie = os.getenv("ADVENT_SESSION_COOKIE", "")
     session_file = Path.home() / ".adventofcode.session"
     if not session_cookie and session_file.exists():
@@ -44,7 +51,7 @@ def scaffold(day: int | None) -> None:
 
     if session_cookie:
         day_input = requests.get(
-            f"https://adventofcode.com/2022/day/{day}/input",
+            f"https://adventofcode.com/{year}/day/{day}/input",
             cookies={"session": session_cookie},
         ).text
     else:
