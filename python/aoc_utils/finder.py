@@ -25,11 +25,13 @@ def get_days(years: List[int] | None = None) -> List[Day]:
     project_path = Path(__file__).resolve().parent.parent
     if years is None:
         years = [
-            int(d.name[4:]) for d in (project_path / "solutions").iterdir() if d.is_dir()
+            int(d.name[4:])
+            for d in (project_path / "solutions").iterdir()
+            if d.is_dir()
         ]
 
     for year in years:
-        solutions_path = project_path / "solutions" / f'year{year}'
+        solutions_path = project_path / "solutions" / f"year{year}"
         if not solutions_path.exists():
             return []
 
