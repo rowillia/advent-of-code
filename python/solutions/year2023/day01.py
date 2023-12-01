@@ -22,7 +22,7 @@ def text_to_digit(text: str) -> str:
 
 
 def part1(text: str) -> str | None:
-    return sum(10 * x[0] + x[-1] for x in to_digits(text))
+    return str(sum(10 * x[0] + x[-1] for x in to_digits(text)))
 
 
 def part2(text: str) -> str | None:
