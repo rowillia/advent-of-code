@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 from python.common.priority_queue import PriorityQueue
 
-from typing import Callable, Dict, Generic, Iterable, List, Tuple, TypeVar
-from typing_extensions import Protocol
+from typing import Callable, Dict, Generic, Iterable, List, Tuple, TypeVar, Protocol
 
 T = TypeVar("T")
 T_co = TypeVar("T_co", covariant=True)

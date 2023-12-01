@@ -22,16 +22,16 @@ jobs:
       - name: Install poetry
         run: pipx install poetry
 
-      - name: Set up Python 3.11
+      - name: Set up Python 3.12
         uses: actions/setup-python@v3
         with:
-          python-version: 3.11-dev
+          python-version: 3.12-dev
           cache: 'poetry'
 
       - name: Change poetry version
         run: |
           rm ./poetry.toml
-          poetry env use python3.11
+          poetry env use python3.12
 
       - name: Install Dependencies
         run: poetry install

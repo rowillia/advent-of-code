@@ -1,6 +1,4 @@
-from typing import Tuple
-
-from pyparsing import Iterable
+from typing import Tuple, Iterable
 from python.common.astar import astar
 
 
