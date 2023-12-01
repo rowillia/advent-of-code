@@ -13,7 +13,7 @@ class Day:
     day_number: int
     module: ModuleType
     solution_input: str | None
-    example_input: str
+    example_input: str | list[str]
     example_answers: List[str]
 
     def __str__(self) -> str:
@@ -55,13 +55,18 @@ def get_days(years: List[int] | None = None) -> List[Day]:
             if solution_path.exists():
                 solution_input = solution_path.read_text()
 
+            example_input = example_yaml["input"]
+            if isinstance(example_input, list):
+                example_input = [str(x) for x in example_input]
+            else:
+                example_input = str(example_input)
             days.append(
                 Day(
                     year,
                     int(day_number),
                     module,
                     solution_input,
-                    str(example_yaml["input"]),
+                    example_input,
                     [str(x) for x in example_yaml["answers"]],
                 )
             )

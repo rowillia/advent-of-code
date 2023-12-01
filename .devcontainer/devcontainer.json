@@ -13,23 +13,27 @@
     }
   },
   // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
-	"ms-python.python",
-	"ms-python.vscode-pylance",
-	"lextudio.restructuredtext-pack",
-	"visualstudioexptteam.vscodeintellicode",
-	"donjayamanne.python-extension-pack",
-	"ms-azuretools.vscode-docker",
-	"GitHub.copilot",
-	"GitHub.copilot-labs",
-	"ms-toolsai.jupyter-keymap",
-	"ms-toolsai.jupyter"
-],
-  "settings": {
-    "python.defaultInterpreterPath": "/workspaces/advent2022/.venv/bin/python",
-    "python.formatting.blackPath": "/workspaces/advent2022/.venv/bin/black",
-    "python.linting.flake8Path": "/workspaces/advent2022/.venv/bin/flake8",
-    "python.linting.mypyPath": "/workspaces/advent2022/.venv/bin/mypy"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "lextudio.restructuredtext-pack",
+        "visualstudioexptteam.vscodeintellicode",
+        "donjayamanne.python-extension-pack",
+        "ms-azuretools.vscode-docker",
+        "GitHub.copilot",
+        "GitHub.copilot-labs",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspaces/advent-of-code/.venv/bin/python",
+        "python.formatting.blackPath": "/workspaces/advent-of-code/.venv/bin/black",
+        "python.linting.flake8Path": "/workspaces/advent-of-code/.venv/bin/flake8",
+        "python.linting.mypyPath": "/workspaces/advent-of-code/.venv/bin/mypy"
+      }
+    }
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
