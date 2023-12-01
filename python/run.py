@@ -76,11 +76,12 @@ def part2(text: str) -> str | None:
     return None
 """
         )
-    (examples_dir / f"{day:02d}.yaml").write_text("""
+    (examples_dir / f"{day:02d}.yaml").write_text(
+        """
 input: |-
 
 answers:
-- 
+-
 """
     )
 

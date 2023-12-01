@@ -50,7 +50,7 @@ class Field:
         proposals = [(e, self.propose(e)) for e in self.elves]
         proposal_count = Counter((p[1] for p in proposals))
         moved = False
-        for (original, proposal) in proposals:
+        for original, proposal in proposals:
             if proposal_count[proposal] == 1 and proposal is not None:
                 del self.elves[original]
                 self.elves[proposal] = 1
