@@ -59,7 +59,7 @@ def scaffold(day: int | None, year: int | None) -> None:
     project_dir = Path(__file__).resolve().parent
     inputs_dir = project_dir.parent / "inputs" / str(year)
     examples_dir = project_dir.parent / "examples" / str(year)
-    solutions_dir = project_dir / "solutions" / str(year)
+    solutions_dir = project_dir / "solutions" / f"year{year}"
     for directory in [inputs_dir, examples_dir, solutions_dir]:
         if not directory.exists():
             directory.mkdir(parents=True)
