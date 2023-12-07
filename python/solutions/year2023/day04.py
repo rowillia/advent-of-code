@@ -1,4 +1,3 @@
-from collections import defaultdict
 from dataclasses import dataclass
 import re
 
@@ -35,7 +34,6 @@ class Card:
 
 
 def part1(text: str) -> int | None:
-    cards = [Card.parse(card).score for card in text.splitlines()]
     return sum(Card.parse(card).score for card in text.splitlines())
 
 

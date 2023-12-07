@@ -64,12 +64,10 @@ class Schematic:
 
 
 def part1(text: str) -> int | None:
-    schematic = Schematic.parse(text)
     symbol_adjacent_points = list(Schematic.parse(text).symbol_adjacent_points())
     return sum(symbol_adjacent_points)
 
 
 def part2(text: str) -> int | None:
-    schematic = Schematic.parse(text)
     gears = list(Schematic.parse(text).gears())
     return sum(gears)
