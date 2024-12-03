@@ -1,8 +1,8 @@
+import itertools
 from collections import Counter
 from dataclasses import dataclass, field
 from enum import Enum
 from functools import cached_property
-import itertools
 from typing import Dict, FrozenSet, List
 
 from python.common.point import Point
@@ -108,8 +108,8 @@ def part1(text: str) -> int | None:
 
 def part2(text: str) -> int | None:
     field = Field.parse(text)
+    round_count = 0
     for round_count in itertools.count(start=1):
         if not field.round():
             break
-    print(str(field))
     return round_count

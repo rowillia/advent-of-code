@@ -1,23 +1,21 @@
 from dataclasses import dataclass
-from python.common.priority_queue import PriorityQueue
+from functools import cached_property
+from typing import Callable, Dict, Generic, Iterable, List, Protocol, Tuple, TypeVar
 
-from typing import Callable, Dict, Generic, Iterable, List, Tuple, TypeVar, Protocol
+from python.common.priority_queue import PriorityQueue
 
 T = TypeVar("T")
 T_co = TypeVar("T_co", covariant=True)
 
 
 class Optimizable(Protocol[T_co]):
-    @property
-    def is_finished(self) -> bool:
-        pass
+    @cached_property
+    def is_finished(self) -> bool: ...
 
-    @property
-    def heuristic(self) -> int:
-        pass
+    @cached_property
+    def heuristic(self) -> int: ...
 
-    def egress(self) -> Iterable[Tuple["Optimizable[T_co]", int]]:
-        pass
+    def egress(self) -> Iterable[Tuple["Optimizable[T_co]", int]]: ...
 
 
 @dataclass(frozen=True)
@@ -37,9 +35,10 @@ class OptimizeWrapper(Generic[T]):
 
     def egress(self) -> Iterable[Tuple["OptimizeWrapper[T]", int]]:
         for neighbor, weight in self._egress(self.current):
-            yield OptimizeWrapper(
-                neighbor, self.end, self._heuristic, self._egress
-            ), weight
+            yield (
+                OptimizeWrapper(neighbor, self.end, self._heuristic, self._egress),
+                weight,
+            )
 
 
 def astar(

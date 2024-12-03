@@ -75,6 +75,7 @@ class HeightMap:
         def heuristic(p1: Point, p2: Point) -> int:
             return p1.manhattan_distance(p2)
 
+        candidate = []
         if all_minimums:
             shortest = None
             for minimum in self.minimums:

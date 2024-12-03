@@ -17,8 +17,9 @@ def priority(badge: str) -> int:
 
 
 def score_rucksack(line: str) -> int:
-    compartment1, compartment2 = set(line[: len(line) // 2]), set(
-        line[len(line) // 2 :]
+    compartment1, compartment2 = (
+        set(line[: len(line) // 2]),
+        set(line[len(line) // 2 :]),
     )
     return priority(compartment1.intersection(compartment2).pop())
 

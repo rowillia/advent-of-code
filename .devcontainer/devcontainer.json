@@ -4,42 +4,36 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      // Update 'VARIANT' to pick a Python version: 3, 3.10, 3.9, 3.8, 3.7, 3.6
-      // Append -bullseye or -buster to pin to an OS version.
-      // Use -bullseye variants on local on arm64/Apple Silicon.
       "VARIANT": "3.12",
-      // Options
-      "POETRY_VERSION": "1.7.1"
+      "UV_VERSION": "0.5.5"
     }
   },
   // Add the IDs of extensions you want installed when the container is created.
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "lextudio.restructuredtext-pack",
-        "visualstudioexptteam.vscodeintellicode",
-        "donjayamanne.python-extension-pack",
+        "charliermarsh.ruff",
         "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "kevinrose.vsc-python-indent",
+        "redhat.vscode-yaml",
+        "shardulm94.trailing-spaces",
+        "tamasfe.even-better-toml",
         "GitHub.copilot",
-        "GitHub.copilot-labs",
         "ms-toolsai.jupyter-keymap",
-        "ms-toolsai.jupyter"
-      ],
-      "settings": {
-        "python.defaultInterpreterPath": "/workspaces/advent-of-code/.venv/bin/python",
-        "python.formatting.blackPath": "/workspaces/advent-of-code/.venv/bin/black",
-        "python.linting.flake8Path": "/workspaces/advent-of-code/.venv/bin/flake8",
-        "python.linting.mypyPath": "/workspaces/advent-of-code/.venv/bin/mypy"
-      }
+        "ms-toolsai.jupyter",
+        "shardulm94.trailing-spaces"
+      ]
     }
   },
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
-  // Install project dependencies
-  "postCreateCommand": "poetry install",
-  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "containerEnv": {
+      "DISPLAY": "dummy",
+      "PYTHONUNBUFFERED": "True",
+      "UV_LINK_MODE": "copy",
+      "UV_PROJECT_ENVIRONMENT": "/home/vscode/.venv"
+  },
+  "postCreateCommand": "uv sync --frozen",
+  "postStartCommand": "uv run pre-commit install",
   "remoteUser": "vscode",
   "features": {
     "github-cli": "latest"

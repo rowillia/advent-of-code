@@ -1,11 +1,10 @@
 import abc
+import re
 from dataclasses import dataclass
 from functools import cache
-import re
 from typing import Iterator
 
 import immutables
-
 
 NUMBER_MONKEY_RE = re.compile(r"(\w+): (\d+)")
 OPERATOR_MONKEY_RE = re.compile(r"(\w+): (\w+) ([\+\-\*\/]) (\w+)")
@@ -41,6 +40,7 @@ class Monkey(abc.ABC):
     name: str
 
     @abc.abstractmethod
+    @cache
     def value(self, monkeys: immutables.Map[str, "Monkey"]) -> "Monkey":
         pass
 

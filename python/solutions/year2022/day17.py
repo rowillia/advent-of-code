@@ -13,6 +13,7 @@ class Shape:
     @classmethod
     def parse(cls, text: str) -> "Shape":
         cells: Set[Point] = set()
+        row = 0
         for row, line in enumerate(reversed(text.splitlines())):
             for col, char in enumerate(line.strip()):
                 if char == "#":

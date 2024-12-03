@@ -1,5 +1,5 @@
-from functools import reduce
 import math
+from functools import reduce
 
 
 def roots(r: int, m: int) -> tuple[int, int]:
@@ -25,5 +25,5 @@ def part2(text: str) -> int | None:
     time_str, distance_str = text.splitlines()
     time = int("".join(time_str.split(":")[1].split()))
     distance = int("".join(distance_str.split(":")[1].split()))
-    l, r = roots(time, distance)
-    return r - l + 1
+    l1, r = roots(time, distance)
+    return r - l1 + 1

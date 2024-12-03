@@ -98,3 +98,5 @@ cython_debug/
 
 # IDE
 .idea/
+
+.ruff_cache/
