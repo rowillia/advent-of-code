@@ -111,7 +111,7 @@ def convert_to_plain_text(response_text: str, width: int = 80) -> str:
         if not isinstance(soup, Tag):
             raise Exception("Could not find article tag in HTML")
         result += parse_article(soup, width=width) + "\n"
-    return result.strip()
+    return result.strip() + "\n"
 
 
 def get_test_yaml_from_problem(problem_text: str) -> str:
