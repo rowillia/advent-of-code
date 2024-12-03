@@ -1,7 +1,7 @@
 {
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "python.defaultInterpreterPath": "/home/vscode/.venv/bin/python",
+    "python.defaultInterpreterPath": ".venv/bin/python",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.profiles.linux": {
         "zsh": {

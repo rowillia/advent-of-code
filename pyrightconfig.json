@@ -2,6 +2,7 @@
     "pythonVersion": "3.12",
     "pythonPlatform": "All",
     "venv": ".venv",
+    "venvPath": ".",
     "include": [],
     "exclude": ["**/__pycache__", ".pytest_cache", ".ruff_cache", ".venv"]
 }

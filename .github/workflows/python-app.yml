@@ -12,6 +12,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "True"
+      UV_LINK_MODE: "copy"
 
     steps:
       - uses: actions/checkout@v3

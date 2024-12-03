@@ -29,7 +29,6 @@ input should always be a string, but answer can be any type as long as it can be
 Some problems have the same input for both parts.  If the question only has 1 part, only generate 1 input and 1 answer.
 
 Same input, multiple part answer example:
-
 ```
 input: |-
   Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
@@ -44,7 +43,6 @@ answers:
 
 
 Different input, different answer example:
-
 ```
 input:
   - |-
