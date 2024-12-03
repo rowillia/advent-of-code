@@ -4,35 +4,40 @@
 name: Python application
 
 on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-    test:
-        runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v3
-              with:
-                  fetch-depth: 1
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
 
-            - name: Install uv
-              run: curl -LsSf https://astral.sh/uv/install.sh | sh
-              shell: bash
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+        shell: bash
 
-            - uses: actions/cache@v4
-              id: cache-uv
-              with:
-                  path: ~/.cache/uv
-                  key: ${{ runner.os }}-uv-${{ hashFiles('**/uv.lock') }}
+      - uses: actions/cache@v4
+        id: cache-uv
+        with:
+          path: ~/.cache/uv
+          key: ${{ runner.os }}-uv-${{ hashFiles('**/uv.lock') }}
 
-            - name: Code Quality
-              run: |
-                  uv run pyright .
-                  uv run ruff .
+      - name: Install Dependencies
+        run: uv sync
+        shell: bash
 
-            - name: Unit Tests
-              run: |
-                  poetry run pytest python
+      - name: Code Quality
+        run: |
+          uv run pyright .
+          uv run ruff check .
+          uv run ruff format . --check --diff
+
+      - name: Unit Tests
+        run: |
+          uv run pytest python

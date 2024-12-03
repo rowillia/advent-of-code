@@ -1,10 +1,14 @@
 import os
+import textwrap
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import click
 import requests
+import yaml
+from anthropic import Anthropic
+from bs4 import BeautifulSoup, Tag
 
 from python.aoc_utils.finder import get_days
 
@@ -12,6 +16,135 @@ from python.aoc_utils.finder import get_days
 @click.group()
 def cli() -> None:
     pass
+
+
+PARSE_QUESTION_PROMPT = """
+You are helping a user solve problems for the "Advent of Code" challenge.
+You are helping them parse out the test cases from the problem definition above.
+The problem may have 1 or 2 parts.
+
+You should produce a yaml file with 2 fields: input and answers.
+input should contain the problem input, and answers should contain the expected answer for each part.
+input should always be a string, but answer can be any type as long as it can be coerced to a string with type casting.
+Some problems have the same input for both parts.  If the question only has 1 part, only generate 1 input and 1 answer.
+
+Same input, multiple part answer example:
+
+```
+input: |-
+  Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+  Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+  Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+  Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+  Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+answers:
+- 8
+- 2286
+```
+
+
+Different input, different answer example:
+
+```
+input:
+  - |-
+    1abc2
+    pqr3stu8vwx
+    a1b2c3d4e5f
+    treb7uchet
+  - |-
+    two1nine
+    eightwothree
+    abcone2threexyz
+    xtwone3four
+    4nineeightseven2
+    zoneight234
+    7pqrstsixteen
+answers:
+  - 142
+  - 281
+```
+
+What is the YAML for the provided question above enclosed within the `<advent_of_code_problem>` xml tag?
+
+Only respond with the proprerly formatted yaml in a code block and nothing else.
+"""
+
+
+def convert_to_plain_text(response_text: str, width: int = 80) -> str:
+    # Parse HTML
+    soup = BeautifulSoup(response_text, "html.parser")
+
+    soup = soup.find("article")
+    if not isinstance(soup, Tag):
+        raise Exception("Could not find article tag in HTML")
+    # Remove script and style elements
+    for script in soup(["script", "style"]):
+        script.decompose()
+
+    # Add newlines around headings
+    for heading in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", "p"]):
+        heading.insert_after("\n")
+
+    # Convert lists to markdown format
+    for list_tag in soup.find_all(["ul", "ol"]):
+        is_ordered = list_tag.name == "ol"
+        for i, item in enumerate(list_tag.find_all("li", recursive=False), 1):
+            # Determine list marker
+            if is_ordered:
+                marker = f"  {i}. "
+            else:
+                marker = "  * "
+
+            # Add marker to beginning of list item
+            if item.string:
+                item.string.replace_with(marker + item.string)
+            else:
+                item.insert(0, marker)
+
+    # Get text and wrap each line
+    text = soup.get_text()
+    wrapped_lines = [textwrap.fill(line, width=width) for line in text.splitlines()]
+
+    return "\n".join(wrapped_lines)
+
+
+def get_test_yaml_from_problem(problem_text: str) -> str:
+    anthropic_api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    default_answer = textwrap.dedent("""\
+        input: |-
+
+        answers:
+        -
+    """)
+    if not anthropic_api_key:
+        return default_answer
+    yaml_lead_in = "input: |-"
+    anthropic_client = Anthropic(api_key=anthropic_api_key)
+    response = anthropic_client.messages.create(
+        max_tokens=1024,
+        messages=[
+            {
+                "role": "user",
+                "content": f"<advent_of_code_problem>\n{problem_text}\n<advent_of_code_problem>",
+            },
+            {
+                "role": "user",
+                "content": PARSE_QUESTION_PROMPT,
+            },
+            {"role": "assistant", "content": f"```yaml\n{yaml_lead_in}"},
+        ],
+        model="claude-3-5-sonnet-20241022",
+    )
+    result_text = response.content[0].text  # type: ignore
+    result_text = result_text.replace("```", "")
+    try:
+        claude_yaml = yaml_lead_in + result_text
+        yaml.safe_load(claude_yaml)
+        return claude_yaml
+    except yaml.YAMLError:
+        print("Warning: AI was unable to parse the question for the sample data")
+        return default_answer
 
 
 @cli.command()
@@ -50,12 +183,19 @@ def scaffold(day: int | None, year: int | None) -> None:
         session_cookie = session_file.read_text()
 
     if session_cookie:
+        cookies = {"session": session_cookie}
         day_input = requests.get(
             f"https://adventofcode.com/{year}/day/{day}/input",
-            cookies={"session": session_cookie},
+            cookies=cookies,
         ).text
     else:
         day_input = ""
+        cookies = None
+
+    problem_text = convert_to_plain_text(
+        requests.get(f"https://adventofcode.com/{year}/day/{day}", cookies=cookies).text
+    )
+
     project_dir = Path(__file__).resolve().parent
     inputs_dir = project_dir.parent / "inputs" / str(year)
     examples_dir = project_dir.parent / "examples" / str(year)
@@ -68,21 +208,30 @@ def scaffold(day: int | None, year: int | None) -> None:
     solution_file = solutions_dir / f"day{day:02d}.py"
     if not solution_file.exists():
         solution_file.write_text(
-            """def part1(text: str) -> str | None:
-    return None
+            textwrap.dedent("""\
+                \"\"\"
+                \"\"\"
+
+                def part1(text: str) -> str | None:
+                    return None
 
 
-def part2(text: str) -> str | None:
-    return None
-"""
+                def part2(text: str) -> str | None:
+                    return None
+                """)
         )
-    (examples_dir / f"{day:02d}.yaml").write_text(
-        """
-input: |-
 
-answers:
--
-"""
+    with solution_file.open("r+") as f:
+        content = f.read()
+        start_index = content.find('"""')
+        end_index = content.find('"""', start_index + 3) + 3
+        if start_index != -1 and end_index != -1:
+            content = content[:start_index] + content[end_index:]
+        f.seek(0, 0)
+        f.write(f'"""\n{problem_text}"""' + content)
+
+    (examples_dir / f"{day:02d}.yaml").write_text(
+        get_test_yaml_from_problem(problem_text)
     )
 
 
