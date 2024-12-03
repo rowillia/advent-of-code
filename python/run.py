@@ -69,13 +69,7 @@ Only respond with the proprerly formatted yaml in a code block and nothing else.
 """
 
 
-def convert_to_plain_text(response_text: str, width: int = 80) -> str:
-    # Parse HTML
-    soup = BeautifulSoup(response_text, "html.parser")
-
-    soup = soup.find("article")
-    if not isinstance(soup, Tag):
-        raise Exception("Could not find article tag in HTML")
+def parse_article(soup: Tag, width: int = 80) -> str:
     # Remove script and style elements
     for script in soup(["script", "style"]):
         script.decompose()
@@ -105,6 +99,19 @@ def convert_to_plain_text(response_text: str, width: int = 80) -> str:
     wrapped_lines = [textwrap.fill(line, width=width) for line in text.splitlines()]
 
     return "\n".join(wrapped_lines)
+
+
+def convert_to_plain_text(response_text: str, width: int = 80) -> str:
+    # Parse HTML
+    soup = BeautifulSoup(response_text, "html.parser")
+
+    articles = soup.find_all("article")
+    result = ""
+    for soup in articles:
+        if not isinstance(soup, Tag):
+            raise Exception("Could not find article tag in HTML")
+        result += parse_article(soup, width=width) + "\n"
+    return result.strip()
 
 
 def get_test_yaml_from_problem(problem_text: str) -> str:
