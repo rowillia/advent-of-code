@@ -27,6 +27,8 @@ You should produce a yaml file with 2 fields: input and answers.
 input should contain the problem input, and answers should contain the expected answer for each part.
 input should always be a string, but answer can be any type as long as it can be coerced to a string with type casting.
 Some problems have the same input for both parts.  If the question only has 1 part, only generate 1 input and 1 answer.
+If part 2 has a different input than part 1, make sure to provide that input as well in the input field.  When in doubt,
+provide 2 inputs (using the examples below for the format, use the literal block scalar format `|-` for each entry in input).
 
 Same input, multiple part answer example:
 ```
@@ -124,7 +126,7 @@ def get_test_yaml_from_problem(problem_text: str) -> str:
     """)
     if not anthropic_api_key:
         return default_answer
-    yaml_lead_in = "input: |-"
+    yaml_lead_in = "input:"
     anthropic_client = Anthropic(api_key=anthropic_api_key)
     response = anthropic_client.messages.create(
         max_tokens=1024,
