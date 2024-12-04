@@ -13,10 +13,12 @@ class Point:
     def manhattan_distance(self, other: "Point") -> int:
         return abs(self.x - other.x) + abs(self.y - other.y)
 
-    def adjacent_points(self, diagonal: bool = True) -> Iterable["Point"]:
+    def adjacent_points(
+        self, diagonal: bool = True, allow_negative: bool = False
+    ) -> Iterable["Point"]:
         for x in range(self.x - 1, self.x + 2):
             for y in range(self.y - 1, self.y + 2):
-                if x < 0 or y < 0:
+                if (x < 0 or y < 0) and not allow_negative:
                     continue
                 if x == self.x and y == self.y:
                     continue
