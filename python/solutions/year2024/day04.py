@@ -122,7 +122,7 @@ def part1(text: str) -> int | None:
         for x in range(len(grid[0])):
             count += sum(
                 int(search(grid, Point(x, y), adj))
-                for adj in Point(0, 0).adjacent_points(allow_negative=True)
+                for adj in Point(0, 0).adjacent_points(allow_out_of_bounds=True)
             )
     return count
 
