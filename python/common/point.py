@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Iterable
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, order=True)
 class Point:
     x: int
     y: int
@@ -12,6 +12,9 @@ class Point:
 
     def __sub__(self, other: "Point") -> "Point":
         return Point(self.x - other.x, self.y - other.y)
+
+    def __neg__(self) -> "Point":
+        return Point(-self.x, -self.y)
 
     def manhattan_distance(self, other: "Point") -> int:
         return abs(self.x - other.x) + abs(self.y - other.y)
