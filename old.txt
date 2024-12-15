@@ -1,0 +1,1608 @@
+🎄 Advent of Code 2024: Day 13 🎄
+Game 0, score 213:
+Button A: X+45, Y+76
+Button B: X+84, Y+14
+Prize: X=9612, Y=4342
+======
+Game 1, score 120:
+Button A: X+22, Y+56
+Button B: X+79, Y+11
+Prize: X=1095, Y=2217
+======
+Game 2, score 0:
+Button A: X+25, Y+11
+Button B: X+42, Y+68
+Prize: X=7881, Y=10751
+======
+Game 3, score 0:
+Button A: X+33, Y+68
+Button B: X+55, Y+11
+Prize: X=4203, Y=15078
+======
+Game 4, score 0:
+Button A: X+20, Y+51
+Button B: X+66, Y+21
+Prize: X=10220, Y=14231
+======
+Game 5, score 142:
+Button A: X+56, Y+28
+Button B: X+14, Y+93
+Prize: X=2506, Y=3919
+======
+Game 6, score 53:
+Button A: X+45, Y+26
+Button B: X+24, Y+91
+Prize: X=840, Y=871
+======
+Game 7, score 0:
+Button A: X+65, Y+12
+Button B: X+17, Y+67
+Prize: X=16378, Y=5204
+======
+Game 8, score 154:
+Button A: X+19, Y+89
+Button B: X+83, Y+67
+Prize: X=4042, Y=6062
+======
+Game 9, score 0:
+Button A: X+55, Y+29
+Button B: X+25, Y+58
+Prize: X=14365, Y=15866
+======
+Game 10, score 0:
+Button A: X+16, Y+48
+Button B: X+67, Y+23
+Prize: X=17849, Y=4917
+======
+Game 11, score 90:
+Button A: X+74, Y+20
+Button B: X+14, Y+88
+Prize: X=1580, Y=5480
+======
+Game 12, score 0:
+Button A: X+52, Y+17
+Button B: X+24, Y+72
+Prize: X=6896, Y=19622
+======
+Game 13, score 131:
+Button A: X+54, Y+21
+Button B: X+31, Y+71
+Prize: X=3242, Y=5269
+======
+Game 14, score 0:
+Button A: X+17, Y+59
+Button B: X+76, Y+17
+Prize: X=3047, Y=9174
+======
+Game 15, score 0:
+Button A: X+31, Y+13
+Button B: X+56, Y+77
+Prize: X=14993, Y=6455
+======
+Game 16, score 346:
+Button A: X+30, Y+95
+Button B: X+76, Y+66
+Prize: X=8476, Y=13566
+======
+Game 17, score 0:
+Button A: X+46, Y+16
+Button B: X+23, Y+51
+Prize: X=4309, Y=2377
+======
+Game 18, score 174:
+Button A: X+61, Y+29
+Button B: X+34, Y+89
+Prize: X=3743, Y=2872
+======
+Game 19, score 206:
+Button A: X+22, Y+52
+Button B: X+84, Y+55
+Prize: X=7414, Y=6471
+======
+Game 20, score 28:
+Button A: X+97, Y+73
+Button B: X+14, Y+94
+Prize: X=832, Y=960
+======
+Game 21, score 380:
+Button A: X+15, Y+45
+Button B: X+74, Y+61
+Prize: X=8041, Y=9794
+======
+Game 22, score 0:
+Button A: X+47, Y+69
+Button B: X+42, Y+16
+Prize: X=3624, Y=13898
+======
+Game 23, score 169:
+Button A: X+12, Y+72
+Button B: X+95, Y+20
+Prize: X=3770, Y=3920
+======
+Game 24, score 0:
+Button A: X+51, Y+28
+Button B: X+19, Y+48
+Prize: X=5490, Y=12352
+======
+Game 25, score 67:
+Button A: X+96, Y+72
+Button B: X+17, Y+46
+Prize: X=1409, Y=2686
+======
+Game 26, score 145:
+Button A: X+32, Y+65
+Button B: X+78, Y+34
+Prize: X=2018, Y=3228
+======
+Game 27, score 217:
+Button A: X+56, Y+46
+Button B: X+18, Y+89
+Prize: X=4042, Y=4285
+======
+Game 28, score 263:
+Button A: X+12, Y+36
+Button B: X+41, Y+18
+Prize: X=2347, Y=3366
+======
+Game 29, score 0:
+Button A: X+20, Y+46
+Button B: X+56, Y+23
+Prize: X=6220, Y=15970
+======
+Game 30, score 0:
+Button A: X+77, Y+13
+Button B: X+16, Y+64
+Prize: X=15241, Y=11769
+======
+Game 31, score 0:
+Button A: X+62, Y+14
+Button B: X+14, Y+71
+Prize: X=19256, Y=17168
+======
+Game 32, score 71:
+Button A: X+53, Y+13
+Button B: X+64, Y+75
+Prize: X=3571, Y=3841
+======
+Game 33, score 60:
+Button A: X+26, Y+97
+Button B: X+50, Y+27
+Prize: X=1512, Y=1812
+======
+Game 34, score 0:
+Button A: X+29, Y+12
+Button B: X+26, Y+37
+Prize: X=4611, Y=3543
+======
+Game 35, score 0:
+Button A: X+52, Y+27
+Button B: X+11, Y+43
+Prize: X=8690, Y=17796
+======
+Game 36, score 0:
+Button A: X+44, Y+22
+Button B: X+13, Y+54
+Prize: X=15524, Y=2882
+======
+Game 37, score 270:
+Button A: X+73, Y+99
+Button B: X+95, Y+21
+Prize: X=11234, Y=8118
+======
+Game 38, score 0:
+Button A: X+15, Y+25
+Button B: X+46, Y+25
+Prize: X=3883, Y=18950
+======
+Game 39, score 229:
+Button A: X+98, Y+81
+Button B: X+24, Y+96
+Prize: X=6848, Y=11220
+======
+Game 40, score 0:
+Button A: X+71, Y+21
+Button B: X+17, Y+53
+Prize: X=6591, Y=12869
+======
+Game 41, score 246:
+Button A: X+50, Y+93
+Button B: X+86, Y+31
+Prize: X=8884, Y=7626
+======
+Game 42, score 0:
+Button A: X+13, Y+25
+Button B: X+58, Y+33
+Prize: X=1551, Y=12620
+======
+Game 43, score 0:
+Button A: X+65, Y+41
+Button B: X+24, Y+52
+Prize: X=5102, Y=7082
+======
+Game 44, score 181:
+Button A: X+15, Y+47
+Button B: X+53, Y+41
+Prize: X=2537, Y=3697
+======
+Game 45, score 115:
+Button A: X+98, Y+35
+Button B: X+55, Y+96
+Prize: X=4583, Y=4462
+======
+Game 46, score 323:
+Button A: X+41, Y+59
+Button B: X+44, Y+12
+Prize: X=7296, Y=5624
+======
+Game 47, score 363:
+Button A: X+17, Y+37
+Button B: X+61, Y+22
+Prize: X=7535, Y=5434
+======
+Game 48, score 0:
+Button A: X+20, Y+51
+Button B: X+43, Y+21
+Prize: X=10278, Y=7688
+======
+Game 49, score 217:
+Button A: X+98, Y+72
+Button B: X+17, Y+47
+Prize: X=6274, Y=6404
+======
+Game 50, score 137:
+Button A: X+11, Y+42
+Button B: X+50, Y+47
+Prize: X=3931, Y=4360
+======
+Game 51, score 332:
+Button A: X+77, Y+86
+Button B: X+88, Y+27
+Prize: X=13882, Y=9374
+======
+Game 52, score 0:
+Button A: X+25, Y+47
+Button B: X+61, Y+28
+Prize: X=16316, Y=3248
+======
+Game 53, score 181:
+Button A: X+48, Y+84
+Button B: X+86, Y+40
+Prize: X=6326, Y=5656
+======
+Game 54, score 0:
+Button A: X+15, Y+50
+Button B: X+52, Y+29
+Prize: X=11380, Y=18010
+======
+Game 55, score 327:
+Button A: X+20, Y+66
+Button B: X+68, Y+52
+Prize: X=6228, Y=9174
+======
+Game 56, score 305:
+Button A: X+35, Y+52
+Button B: X+84, Y+31
+Prize: X=4354, Y=5437
+======
+Game 57, score 92:
+Button A: X+37, Y+77
+Button B: X+80, Y+24
+Prize: X=6548, Y=2228
+======
+Game 58, score 0:
+Button A: X+73, Y+27
+Button B: X+19, Y+54
+Prize: X=12882, Y=4040
+======
+Game 59, score 0:
+Button A: X+59, Y+12
+Button B: X+16, Y+37
+Prize: X=516, Y=18288
+======
+Game 60, score 209:
+Button A: X+61, Y+43
+Button B: X+15, Y+54
+Prize: X=3759, Y=6645
+======
+Game 61, score 0:
+Button A: X+11, Y+36
+Button B: X+62, Y+41
+Prize: X=4918, Y=19784
+======
+Game 62, score 162:
+Button A: X+23, Y+74
+Button B: X+41, Y+22
+Prize: X=2342, Y=3908
+======
+Game 63, score 0:
+Button A: X+27, Y+46
+Button B: X+56, Y+29
+Prize: X=11199, Y=13762
+======
+Game 64, score 0:
+Button A: X+65, Y+17
+Button B: X+22, Y+61
+Prize: X=19498, Y=6229
+======
+Game 65, score 260:
+Button A: X+60, Y+99
+Button B: X+63, Y+20
+Prize: X=8253, Y=7657
+======
+Game 66, score 0:
+Button A: X+36, Y+15
+Button B: X+19, Y+46
+Prize: X=11892, Y=19092
+======
+Game 67, score 0:
+Button A: X+31, Y+50
+Button B: X+48, Y+19
+Prize: X=15636, Y=9219
+======
+Game 68, score 0:
+Button A: X+14, Y+50
+Button B: X+38, Y+12
+Prize: X=2042, Y=9072
+======
+Game 69, score 98:
+Button A: X+27, Y+32
+Button B: X+86, Y+12
+Prize: X=1960, Y=1064
+======
+Game 70, score 111:
+Button A: X+92, Y+26
+Button B: X+25, Y+74
+Prize: X=2843, Y=7430
+======
+Game 71, score 137:
+Button A: X+14, Y+81
+Button B: X+37, Y+24
+Prize: X=1286, Y=3639
+======
+Game 72, score 219:
+Button A: X+43, Y+13
+Button B: X+69, Y+82
+Prize: X=5927, Y=4910
+======
+Game 73, score 370:
+Button A: X+33, Y+22
+Button B: X+27, Y+97
+Prize: X=5286, Y=9528
+======
+Game 74, score 0:
+Button A: X+30, Y+69
+Button B: X+65, Y+22
+Prize: X=495, Y=10666
+======
+Game 75, score 202:
+Button A: X+12, Y+19
+Button B: X+88, Y+45
+Prize: X=4168, Y=2826
+======
+Game 76, score 186:
+Button A: X+62, Y+29
+Button B: X+33, Y+53
+Prize: X=5028, Y=5958
+======
+Game 77, score 97:
+Button A: X+96, Y+23
+Button B: X+46, Y+84
+Prize: X=4210, Y=6774
+======
+Game 78, score 0:
+Button A: X+70, Y+16
+Button B: X+16, Y+45
+Prize: X=4982, Y=272
+======
+Game 79, score 0:
+Button A: X+40, Y+83
+Button B: X+48, Y+12
+Prize: X=4448, Y=10646
+======
+Game 80, score 0:
+Button A: X+42, Y+14
+Button B: X+15, Y+62
+Prize: X=4619, Y=18384
+======
+Game 81, score 0:
+Button A: X+75, Y+11
+Button B: X+13, Y+62
+Prize: X=18740, Y=11313
+======
+Game 82, score 0:
+Button A: X+13, Y+30
+Button B: X+67, Y+31
+Prize: X=10045, Y=4980
+======
+Game 83, score 269:
+Button A: X+11, Y+17
+Button B: X+80, Y+37
+Prize: X=8467, Y=4595
+======
+Game 84, score 0:
+Button A: X+57, Y+15
+Button B: X+21, Y+46
+Prize: X=17303, Y=16618
+======
+Game 85, score 170:
+Button A: X+45, Y+43
+Button B: X+15, Y+53
+Prize: X=2550, Y=2862
+======
+Game 86, score 0:
+Button A: X+42, Y+11
+Button B: X+15, Y+27
+Prize: X=12170, Y=17250
+======
+Game 87, score 226:
+Button A: X+55, Y+82
+Button B: X+73, Y+24
+Prize: X=9282, Y=5864
+======
+Game 88, score 0:
+Button A: X+44, Y+16
+Button B: X+28, Y+48
+Prize: X=12800, Y=19168
+======
+Game 89, score 0:
+Button A: X+11, Y+46
+Button B: X+56, Y+17
+Prize: X=4742, Y=5408
+======
+Game 90, score 0:
+Button A: X+24, Y+50
+Button B: X+58, Y+25
+Prize: X=12400, Y=15950
+======
+Game 91, score 0:
+Button A: X+69, Y+36
+Button B: X+14, Y+29
+Prize: X=4705, Y=16654
+======
+Game 92, score 302:
+Button A: X+13, Y+47
+Button B: X+62, Y+33
+Prize: X=6441, Y=6274
+======
+Game 93, score 0:
+Button A: X+12, Y+53
+Button B: X+55, Y+25
+Prize: X=7451, Y=7044
+======
+Game 94, score 0:
+Button A: X+74, Y+34
+Button B: X+13, Y+57
+Prize: X=1562, Y=7666
+======
+Game 95, score 140:
+Button A: X+30, Y+21
+Button B: X+19, Y+55
+Prize: X=1823, Y=3236
+======
+Game 96, score 0:
+Button A: X+50, Y+30
+Button B: X+17, Y+42
+Prize: X=8227, Y=5222
+======
+Game 97, score 0:
+Button A: X+14, Y+43
+Button B: X+77, Y+37
+Prize: X=12793, Y=14883
+======
+Game 98, score 89:
+Button A: X+44, Y+35
+Button B: X+16, Y+66
+Prize: X=1320, Y=1636
+======
+Game 99, score 0:
+Button A: X+53, Y+23
+Button B: X+31, Y+52
+Prize: X=18767, Y=2963
+======
+Game 100, score 0:
+Button A: X+67, Y+16
+Button B: X+14, Y+77
+Prize: X=14748, Y=7824
+======
+Game 101, score 234:
+Button A: X+14, Y+94
+Button B: X+50, Y+18
+Prize: X=4356, Y=6372
+======
+Game 102, score 0:
+Button A: X+16, Y+71
+Button B: X+59, Y+11
+Prize: X=13460, Y=12306
+======
+Game 103, score 0:
+Button A: X+65, Y+16
+Button B: X+11, Y+45
+Prize: X=11683, Y=463
+======
+Game 104, score 0:
+Button A: X+11, Y+52
+Button B: X+79, Y+16
+Prize: X=13322, Y=2372
+======
+Game 105, score 0:
+Button A: X+19, Y+58
+Button B: X+74, Y+32
+Prize: X=2851, Y=13630
+======
+Game 106, score 0:
+Button A: X+11, Y+32
+Button B: X+38, Y+17
+Prize: X=2773, Y=6763
+======
+Game 107, score 198:
+Button A: X+12, Y+32
+Button B: X+71, Y+36
+Prize: X=1395, Y=2340
+======
+Game 108, score 172:
+Button A: X+46, Y+74
+Button B: X+46, Y+21
+Prize: X=3588, Y=4129
+======
+Game 109, score 0:
+Button A: X+12, Y+36
+Button B: X+73, Y+22
+Prize: X=9908, Y=12308
+======
+Game 110, score 0:
+Button A: X+65, Y+11
+Button B: X+16, Y+66
+Prize: X=18059, Y=6073
+======
+Game 111, score 0:
+Button A: X+38, Y+12
+Button B: X+25, Y+44
+Prize: X=13833, Y=16036
+======
+Game 112, score 248:
+Button A: X+11, Y+85
+Button B: X+47, Y+23
+Prize: X=4766, Y=6552
+======
+Game 113, score 277:
+Button A: X+21, Y+79
+Button B: X+79, Y+23
+Prize: X=2443, Y=7271
+======
+Game 114, score 0:
+Button A: X+11, Y+34
+Button B: X+63, Y+30
+Prize: X=4259, Y=18422
+======
+Game 115, score 292:
+Button A: X+15, Y+41
+Button B: X+56, Y+37
+Prize: X=3959, Y=5134
+======
+Game 116, score 0:
+Button A: X+17, Y+44
+Button B: X+62, Y+11
+Prize: X=2135, Y=7118
+======
+Game 117, score 79:
+Button A: X+14, Y+13
+Button B: X+95, Y+13
+Prize: X=3440, Y=637
+======
+Game 118, score 0:
+Button A: X+18, Y+45
+Button B: X+58, Y+18
+Prize: X=2040, Y=10367
+======
+Game 119, score 199:
+Button A: X+91, Y+97
+Button B: X+19, Y+92
+Prize: X=5447, Y=9537
+======
+Game 120, score 0:
+Button A: X+48, Y+27
+Button B: X+15, Y+43
+Prize: X=8654, Y=13750
+======
+Game 121, score 0:
+Button A: X+81, Y+48
+Button B: X+13, Y+36
+Prize: X=16302, Y=12812
+======
+Game 122, score 231:
+Button A: X+25, Y+75
+Button B: X+99, Y+52
+Prize: X=8997, Y=7881
+======
+Game 123, score 211:
+Button A: X+14, Y+52
+Button B: X+19, Y+15
+Prize: X=1171, Y=3627
+======
+Game 124, score 0:
+Button A: X+32, Y+23
+Button B: X+13, Y+30
+Prize: X=2432, Y=5887
+======
+Game 125, score 0:
+Button A: X+43, Y+13
+Button B: X+13, Y+71
+Prize: X=3747, Y=6845
+======
+Game 126, score 0:
+Button A: X+12, Y+31
+Button B: X+73, Y+48
+Prize: X=8829, Y=8099
+======
+Game 127, score 0:
+Button A: X+45, Y+18
+Button B: X+19, Y+61
+Prize: X=12164, Y=4289
+======
+Game 128, score 86:
+Button A: X+39, Y+92
+Button B: X+66, Y+43
+Prize: X=2019, Y=2847
+======
+Game 129, score 49:
+Button A: X+92, Y+17
+Button B: X+42, Y+91
+Prize: X=1854, Y=2923
+======
+Game 130, score 235:
+Button A: X+41, Y+93
+Button B: X+60, Y+22
+Prize: X=5621, Y=6817
+======
+Game 131, score 180:
+Button A: X+54, Y+20
+Button B: X+13, Y+41
+Prize: X=2910, Y=3466
+======
+Game 132, score 250:
+Button A: X+26, Y+65
+Button B: X+94, Y+37
+Prize: X=2764, Y=5524
+======
+Game 133, score 0:
+Button A: X+18, Y+43
+Button B: X+64, Y+32
+Prize: X=14300, Y=4586
+======
+Game 134, score 185:
+Button A: X+18, Y+33
+Button B: X+54, Y+14
+Prize: X=5238, Y=2293
+======
+Game 135, score 174:
+Button A: X+68, Y+35
+Button B: X+19, Y+45
+Prize: X=3658, Y=4630
+======
+Game 136, score 0:
+Button A: X+27, Y+60
+Button B: X+56, Y+21
+Prize: X=9789, Y=6812
+======
+Game 137, score 198:
+Button A: X+49, Y+70
+Button B: X+50, Y+19
+Prize: X=6365, Y=4217
+======
+Game 138, score 196:
+Button A: X+81, Y+39
+Button B: X+21, Y+67
+Prize: X=4872, Y=6328
+======
+Game 139, score 0:
+Button A: X+19, Y+44
+Button B: X+52, Y+24
+Prize: X=5064, Y=10384
+======
+Game 140, score 127:
+Button A: X+66, Y+94
+Button B: X+37, Y+13
+Prize: X=3169, Y=3521
+======
+Game 141, score 84:
+Button A: X+62, Y+17
+Button B: X+14, Y+66
+Prize: X=1656, Y=1200
+======
+Game 142, score 0:
+Button A: X+12, Y+34
+Button B: X+38, Y+20
+Prize: X=17744, Y=758
+======
+Game 143, score 298:
+Button A: X+28, Y+81
+Button B: X+78, Y+49
+Prize: X=7794, Y=9652
+======
+Game 144, score 0:
+Button A: X+40, Y+12
+Button B: X+34, Y+71
+Prize: X=17472, Y=5280
+======
+Game 145, score 0:
+Button A: X+41, Y+71
+Button B: X+52, Y+22
+Prize: X=5919, Y=9939
+======
+Game 146, score 0:
+Button A: X+30, Y+68
+Button B: X+47, Y+15
+Prize: X=8711, Y=13505
+======
+Game 147, score 0:
+Button A: X+19, Y+35
+Button B: X+51, Y+30
+Prize: X=11571, Y=16030
+======
+Game 148, score 159:
+Button A: X+62, Y+45
+Button B: X+14, Y+59
+Prize: X=3026, Y=4101
+======
+Game 149, score 95:
+Button A: X+21, Y+40
+Button B: X+68, Y+25
+Prize: X=4630, Y=2025
+======
+Game 150, score 0:
+Button A: X+16, Y+32
+Button B: X+26, Y+17
+Prize: X=17532, Y=15614
+======
+Game 151, score 0:
+Button A: X+25, Y+64
+Button B: X+48, Y+22
+Prize: X=8714, Y=3618
+======
+Game 152, score 0:
+Button A: X+36, Y+17
+Button B: X+36, Y+61
+Prize: X=3644, Y=11379
+======
+Game 153, score 198:
+Button A: X+12, Y+42
+Button B: X+81, Y+25
+Prize: X=4488, Y=3300
+======
+Game 154, score 0:
+Button A: X+57, Y+32
+Button B: X+14, Y+49
+Prize: X=18094, Y=229
+======
+Game 155, score 135:
+Button A: X+87, Y+82
+Button B: X+78, Y+16
+Prize: X=6708, Y=3044
+======
+Game 156, score 297:
+Button A: X+91, Y+27
+Button B: X+21, Y+73
+Prize: X=8701, Y=4785
+======
+Game 157, score 183:
+Button A: X+45, Y+19
+Button B: X+42, Y+62
+Prize: X=3312, Y=2328
+======
+Game 158, score 0:
+Button A: X+78, Y+50
+Button B: X+12, Y+36
+Prize: X=18206, Y=2530
+======
+Game 159, score 0:
+Button A: X+62, Y+17
+Button B: X+25, Y+60
+Prize: X=12547, Y=2922
+======
+Game 160, score 0:
+Button A: X+34, Y+14
+Button B: X+53, Y+74
+Prize: X=15720, Y=6388
+======
+Game 161, score 0:
+Button A: X+20, Y+59
+Button B: X+71, Y+27
+Prize: X=15731, Y=5329
+======
+Game 162, score 200:
+Button A: X+37, Y+73
+Button B: X+78, Y+47
+Prize: X=7917, Y=6748
+======
+Game 163, score 230:
+Button A: X+55, Y+89
+Button B: X+31, Y+11
+Prize: X=4356, Y=6618
+======
+Game 164, score 0:
+Button A: X+19, Y+58
+Button B: X+42, Y+13
+Prize: X=506, Y=4853
+======
+Game 165, score 42:
+Button A: X+46, Y+24
+Button B: X+13, Y+95
+Prize: X=581, Y=2685
+======
+Game 166, score 0:
+Button A: X+46, Y+70
+Button B: X+49, Y+23
+Prize: X=4379, Y=9529
+======
+Game 167, score 0:
+Button A: X+50, Y+24
+Button B: X+24, Y+56
+Prize: X=9260, Y=19784
+======
+Game 168, score 0:
+Button A: X+14, Y+57
+Button B: X+83, Y+37
+Prize: X=7497, Y=13637
+======
+Game 169, score 0:
+Button A: X+32, Y+74
+Button B: X+50, Y+19
+Prize: X=18212, Y=2520
+======
+Game 170, score 127:
+Button A: X+89, Y+11
+Button B: X+66, Y+74
+Prize: X=4567, Y=2013
+======
+Game 171, score 0:
+Button A: X+12, Y+61
+Button B: X+83, Y+33
+Prize: X=10557, Y=15036
+======
+Game 172, score 0:
+Button A: X+70, Y+20
+Button B: X+21, Y+58
+Prize: X=3686, Y=12668
+======
+Game 173, score 158:
+Button A: X+57, Y+19
+Button B: X+36, Y+98
+Prize: X=4668, Y=9984
+======
+Game 174, score 0:
+Button A: X+24, Y+36
+Button B: X+27, Y+11
+Prize: X=9068, Y=12532
+======
+Game 175, score 0:
+Button A: X+30, Y+52
+Button B: X+51, Y+27
+Prize: X=14960, Y=19690
+======
+Game 176, score 124:
+Button A: X+99, Y+26
+Button B: X+88, Y+97
+Prize: X=4972, Y=2488
+======
+Game 177, score 0:
+Button A: X+42, Y+15
+Button B: X+19, Y+38
+Prize: X=8408, Y=6044
+======
+Game 178, score 0:
+Button A: X+31, Y+14
+Button B: X+23, Y+64
+Prize: X=17598, Y=2458
+======
+Game 179, score 164:
+Button A: X+94, Y+69
+Button B: X+13, Y+88
+Prize: X=4607, Y=5657
+======
+Game 180, score 0:
+Button A: X+56, Y+23
+Button B: X+22, Y+47
+Prize: X=908, Y=7719
+======
+Game 181, score 210:
+Button A: X+56, Y+13
+Button B: X+73, Y+84
+Prize: X=7832, Y=6646
+======
+Game 182, score 183:
+Button A: X+97, Y+19
+Button B: X+17, Y+47
+Prize: X=4445, Y=5063
+======
+Game 183, score 0:
+Button A: X+43, Y+17
+Button B: X+29, Y+69
+Prize: X=9357, Y=4833
+======
+Game 184, score 0:
+Button A: X+17, Y+58
+Button B: X+74, Y+30
+Prize: X=13473, Y=10012
+======
+Game 185, score 0:
+Button A: X+32, Y+79
+Button B: X+59, Y+17
+Prize: X=8666, Y=6293
+======
+Game 186, score 0:
+Button A: X+12, Y+19
+Button B: X+41, Y+11
+Prize: X=1437, Y=18758
+======
+Game 187, score 94:
+Button A: X+35, Y+66
+Button B: X+66, Y+41
+Prize: X=4085, Y=3113
+======
+Game 188, score 0:
+Button A: X+48, Y+21
+Button B: X+35, Y+68
+Prize: X=13600, Y=6145
+======
+Game 189, score 289:
+Button A: X+12, Y+45
+Button B: X+84, Y+44
+Prize: X=3156, Y=5060
+======
+Game 190, score 0:
+Button A: X+50, Y+12
+Button B: X+23, Y+47
+Prize: X=9286, Y=4994
+======
+Game 191, score 0:
+Button A: X+62, Y+26
+Button B: X+16, Y+55
+Prize: X=17398, Y=6865
+======
+Game 192, score 27:
+Button A: X+74, Y+80
+Button B: X+88, Y+24
+Prize: X=856, Y=712
+======
+Game 193, score 240:
+Button A: X+29, Y+85
+Button B: X+58, Y+40
+Prize: X=4930, Y=7430
+======
+Game 194, score 303:
+Button A: X+66, Y+96
+Button B: X+36, Y+12
+Prize: X=7506, Y=8496
+======
+Game 195, score 0:
+Button A: X+45, Y+14
+Button B: X+20, Y+58
+Prize: X=12925, Y=19118
+======
+Game 196, score 0:
+Button A: X+69, Y+19
+Button B: X+26, Y+77
+Prize: X=517, Y=16063
+======
+Game 197, score 154:
+Button A: X+21, Y+78
+Button B: X+81, Y+46
+Prize: X=1596, Y=4144
+======
+Game 198, score 0:
+Button A: X+16, Y+62
+Button B: X+65, Y+22
+Prize: X=9663, Y=10954
+======
+Game 199, score 0:
+Button A: X+21, Y+62
+Button B: X+71, Y+19
+Prize: X=8058, Y=2258
+======
+Game 200, score 283:
+Button A: X+34, Y+85
+Button B: X+54, Y+34
+Prize: X=6578, Y=8466
+======
+Game 201, score 294:
+Button A: X+87, Y+17
+Button B: X+69, Y+63
+Prize: X=10446, Y=4418
+======
+Game 202, score 346:
+Button A: X+12, Y+92
+Button B: X+75, Y+29
+Prize: X=4863, Y=10529
+======
+Game 203, score 0:
+Button A: X+46, Y+30
+Button B: X+16, Y+41
+Prize: X=8888, Y=9041
+======
+Game 204, score 74:
+Button A: X+72, Y+16
+Button B: X+65, Y+76
+Prize: X=2473, Y=1596
+======
+Game 205, score 305:
+Button A: X+22, Y+88
+Button B: X+79, Y+38
+Prize: X=6680, Y=9484
+======
+Game 206, score 0:
+Button A: X+59, Y+23
+Button B: X+22, Y+47
+Prize: X=15210, Y=16087
+======
+Game 207, score 133:
+Button A: X+83, Y+38
+Button B: X+42, Y+94
+Prize: X=3780, Y=2254
+======
+Game 208, score 0:
+Button A: X+52, Y+25
+Button B: X+19, Y+35
+Prize: X=7633, Y=235
+======
+Game 209, score 349:
+Button A: X+29, Y+66
+Button B: X+80, Y+52
+Prize: X=7875, Y=9598
+======
+Game 210, score 0:
+Button A: X+50, Y+23
+Button B: X+12, Y+19
+Prize: X=2380, Y=17674
+======
+Game 211, score 0:
+Button A: X+27, Y+55
+Button B: X+53, Y+29
+Prize: X=10526, Y=12566
+======
+Game 212, score 0:
+Button A: X+57, Y+14
+Button B: X+34, Y+81
+Prize: X=4709, Y=7629
+======
+Game 213, score 29:
+Button A: X+34, Y+83
+Button B: X+92, Y+49
+Prize: X=974, Y=973
+======
+Game 214, score 0:
+Button A: X+22, Y+47
+Button B: X+23, Y+12
+Prize: X=11185, Y=10325
+======
+Game 215, score 261:
+Button A: X+31, Y+17
+Button B: X+33, Y+88
+Prize: X=4805, Y=9136
+======
+Game 216, score 0:
+Button A: X+47, Y+23
+Button B: X+20, Y+59
+Prize: X=11591, Y=4760
+======
+Game 217, score 132:
+Button A: X+59, Y+92
+Button B: X+70, Y+22
+Prize: X=4710, Y=3684
+======
+Game 218, score 0:
+Button A: X+12, Y+71
+Button B: X+61, Y+12
+Prize: X=13010, Y=4755
+======
+Game 219, score 0:
+Button A: X+55, Y+19
+Button B: X+15, Y+45
+Prize: X=14255, Y=11501
+======
+Game 220, score 0:
+Button A: X+19, Y+57
+Button B: X+54, Y+17
+Prize: X=3787, Y=2191
+======
+Game 221, score 0:
+Button A: X+13, Y+50
+Button B: X+54, Y+12
+Prize: X=10846, Y=13404
+======
+Game 222, score 0:
+Button A: X+24, Y+64
+Button B: X+48, Y+15
+Prize: X=6584, Y=14928
+======
+Game 223, score 0:
+Button A: X+11, Y+22
+Button B: X+56, Y+25
+Prize: X=9554, Y=4460
+======
+Game 224, score 0:
+Button A: X+11, Y+21
+Button B: X+31, Y+12
+Prize: X=12617, Y=7871
+======
+Game 225, score 214:
+Button A: X+54, Y+13
+Button B: X+56, Y+66
+Prize: X=4004, Y=1174
+======
+Game 226, score 85:
+Button A: X+75, Y+44
+Button B: X+42, Y+86
+Prize: X=3264, Y=6026
+======
+Game 227, score 343:
+Button A: X+28, Y+71
+Button B: X+33, Y+16
+Prize: X=4929, Y=7558
+======
+Game 228, score 257:
+Button A: X+85, Y+13
+Button B: X+38, Y+31
+Prize: X=7939, Y=2927
+======
+Game 229, score 0:
+Button A: X+49, Y+24
+Button B: X+24, Y+43
+Prize: X=14397, Y=10855
+======
+Game 230, score 194:
+Button A: X+26, Y+16
+Button B: X+44, Y+99
+Prize: X=4932, Y=9652
+======
+Game 231, score 153:
+Button A: X+56, Y+55
+Button B: X+21, Y+95
+Prize: X=2975, Y=6715
+======
+Game 232, score 90:
+Button A: X+29, Y+75
+Button B: X+80, Y+13
+Prize: X=5934, Y=1386
+======
+Game 233, score 0:
+Button A: X+27, Y+74
+Button B: X+55, Y+13
+Prize: X=1467, Y=289
+======
+Game 234, score 321:
+Button A: X+70, Y+24
+Button B: X+26, Y+70
+Prize: X=7738, Y=8334
+======
+Game 235, score 0:
+Button A: X+19, Y+58
+Button B: X+60, Y+30
+Prize: X=17148, Y=1146
+======
+Game 236, score 115:
+Button A: X+86, Y+15
+Button B: X+28, Y+96
+Prize: X=3260, Y=5580
+======
+Game 237, score 340:
+Button A: X+55, Y+77
+Button B: X+81, Y+36
+Prize: X=11372, Y=9574
+======
+Game 238, score 0:
+Button A: X+19, Y+37
+Button B: X+57, Y+27
+Prize: X=4015, Y=16909
+======
+Game 239, score 0:
+Button A: X+24, Y+47
+Button B: X+39, Y+23
+Prize: X=5270, Y=17449
+======
+Game 240, score 0:
+Button A: X+44, Y+18
+Button B: X+33, Y+53
+Prize: X=19735, Y=6263
+======
+Game 241, score 267:
+Button A: X+54, Y+22
+Button B: X+67, Y+93
+Prize: X=6423, Y=4785
+======
+Game 242, score 0:
+Button A: X+72, Y+31
+Button B: X+22, Y+59
+Prize: X=18610, Y=19568
+======
+Game 243, score 0:
+Button A: X+23, Y+56
+Button B: X+63, Y+26
+Prize: X=4207, Y=10004
+======
+Game 244, score 203:
+Button A: X+11, Y+67
+Button B: X+79, Y+12
+Prize: X=5867, Y=3831
+======
+Game 245, score 61:
+Button A: X+95, Y+16
+Button B: X+63, Y+74
+Prize: X=2621, Y=1836
+======
+Game 246, score 0:
+Button A: X+86, Y+27
+Button B: X+11, Y+62
+Prize: X=19037, Y=3029
+======
+Game 247, score 0:
+Button A: X+12, Y+43
+Button B: X+52, Y+28
+Prize: X=3820, Y=14930
+======
+Game 248, score 104:
+Button A: X+21, Y+38
+Button B: X+68, Y+21
+Prize: X=3595, Y=1709
+======
+Game 249, score 0:
+Button A: X+21, Y+54
+Button B: X+47, Y+22
+Prize: X=8697, Y=19522
+======
+Game 250, score 0:
+Button A: X+21, Y+64
+Button B: X+60, Y+13
+Prize: X=18134, Y=13121
+======
+Game 251, score 193:
+Button A: X+29, Y+11
+Button B: X+43, Y+53
+Prize: X=3599, Y=3273
+======
+Game 252, score 0:
+Button A: X+64, Y+33
+Button B: X+29, Y+61
+Prize: X=5176, Y=9225
+======
+Game 253, score 199:
+Button A: X+91, Y+59
+Button B: X+21, Y+43
+Prize: X=5635, Y=4917
+======
+Game 254, score 0:
+Button A: X+48, Y+26
+Button B: X+23, Y+40
+Prize: X=14909, Y=8122
+======
+Game 255, score 0:
+Button A: X+13, Y+72
+Button B: X+83, Y+11
+Prize: X=14242, Y=9769
+======
+Game 256, score 87:
+Button A: X+72, Y+98
+Button B: X+56, Y+18
+Prize: X=3144, Y=2358
+======
+Game 257, score 0:
+Button A: X+23, Y+51
+Button B: X+69, Y+33
+Prize: X=12428, Y=1676
+======
+Game 258, score 286:
+Button A: X+49, Y+27
+Button B: X+14, Y+56
+Prize: X=4487, Y=6287
+======
+Game 259, score 113:
+Button A: X+69, Y+27
+Button B: X+14, Y+65
+Prize: X=1852, Y=5665
+======
+Game 260, score 224:
+Button A: X+44, Y+60
+Button B: X+92, Y+38
+Prize: X=8080, Y=5596
+======
+Game 261, score 0:
+Button A: X+13, Y+44
+Button B: X+55, Y+24
+Prize: X=5073, Y=16264
+======
+Game 262, score 0:
+Button A: X+50, Y+14
+Button B: X+16, Y+28
+Prize: X=18188, Y=10112
+======
+Game 263, score 0:
+Button A: X+69, Y+34
+Button B: X+16, Y+37
+Prize: X=1028, Y=16533
+======
+Game 264, score 0:
+Button A: X+61, Y+23
+Button B: X+28, Y+68
+Prize: X=9092, Y=2252
+======
+Game 265, score 0:
+Button A: X+20, Y+76
+Button B: X+78, Y+17
+Prize: X=6586, Y=7435
+======
+Game 266, score 196:
+Button A: X+69, Y+41
+Button B: X+12, Y+82
+Prize: X=4233, Y=4387
+======
+Game 267, score 161:
+Button A: X+38, Y+51
+Button B: X+38, Y+12
+Prize: X=3838, Y=2382
+======
+Game 268, score 284:
+Button A: X+98, Y+18
+Button B: X+16, Y+38
+Prize: X=8194, Y=3784
+======
+Game 269, score 237:
+Button A: X+31, Y+59
+Button B: X+76, Y+39
+Prize: X=7768, Y=6227
+======
+Game 270, score 258:
+Button A: X+73, Y+83
+Button B: X+18, Y+91
+Prize: X=5746, Y=12458
+======
+Game 271, score 0:
+Button A: X+54, Y+24
+Button B: X+12, Y+34
+Prize: X=9248, Y=19378
+======
+Game 272, score 384:
+Button A: X+99, Y+39
+Button B: X+48, Y+82
+Prize: X=14112, Y=11616
+======
+Game 273, score 0:
+Button A: X+11, Y+55
+Button B: X+53, Y+12
+Prize: X=12201, Y=17595
+======
+Game 274, score 219:
+Button A: X+49, Y+35
+Button B: X+27, Y+81
+Prize: X=4025, Y=5467
+======
+Game 275, score 316:
+Button A: X+38, Y+13
+Button B: X+11, Y+25
+Prize: X=3966, Y=1824
+======
+Game 276, score 86:
+Button A: X+17, Y+78
+Button B: X+59, Y+48
+Prize: X=1234, Y=2544
+======
+Game 277, score 139:
+Button A: X+96, Y+40
+Button B: X+34, Y+93
+Prize: X=4594, Y=7669
+======
+Game 278, score 188:
+Button A: X+31, Y+48
+Button B: X+32, Y+15
+Prize: X=3936, Y=2916
+======
+Game 279, score 0:
+Button A: X+43, Y+17
+Button B: X+40, Y+66
+Prize: X=17200, Y=4148
+======
+Game 280, score 0:
+Button A: X+16, Y+49
+Button B: X+57, Y+34
+Prize: X=9342, Y=9202
+======
+Game 281, score 226:
+Button A: X+40, Y+59
+Button B: X+78, Y+16
+Prize: X=4436, Y=4364
+======
+Game 282, score 0:
+Button A: X+35, Y+17
+Button B: X+44, Y+72
+Prize: X=14051, Y=17397
+======
+Game 283, score 0:
+Button A: X+16, Y+63
+Button B: X+44, Y+12
+Prize: X=13420, Y=19730
+======
+Game 284, score 79:
+Button A: X+87, Y+41
+Button B: X+25, Y+96
+Prize: X=2011, Y=6843
+======
+Game 285, score 0:
+Button A: X+14, Y+63
+Button B: X+70, Y+14
+Prize: X=18260, Y=18792
+======
+Game 286, score 0:
+Button A: X+76, Y+21
+Button B: X+13, Y+52
+Prize: X=15663, Y=621
+======
+Game 287, score 15:
+Button A: X+30, Y+61
+Button B: X+64, Y+25
+Prize: X=474, Y=333
+======
+Game 288, score 0:
+Button A: X+14, Y+67
+Button B: X+72, Y+22
+Prize: X=9660, Y=17254
+======
+Game 289, score 0:
+Button A: X+62, Y+24
+Button B: X+18, Y+52
+Prize: X=15658, Y=18244
+======
+Game 290, score 0:
+Button A: X+12, Y+49
+Button B: X+68, Y+39
+Prize: X=9104, Y=13088
+======
+Game 291, score 0:
+Button A: X+57, Y+14
+Button B: X+30, Y+76
+Prize: X=11585, Y=718
+======
+Game 292, score 364:
+Button A: X+89, Y+62
+Button B: X+11, Y+31
+Prize: X=9380, Y=8308
+======
+Game 293, score 0:
+Button A: X+33, Y+51
+Button B: X+41, Y+20
+Prize: X=18224, Y=8261
+======
+Game 294, score 305:
+Button A: X+74, Y+23
+Button B: X+41, Y+67
+Prize: X=8340, Y=5305
+======
+Game 295, score 165:
+Button A: X+70, Y+26
+Button B: X+15, Y+62
+Prize: X=3275, Y=5110
+======
+Game 296, score 0:
+Button A: X+34, Y+20
+Button B: X+18, Y+48
+Prize: X=15442, Y=19044
+======
+Game 297, score 0:
+Button A: X+52, Y+17
+Button B: X+11, Y+29
+Prize: X=13046, Y=19650
+======
+Game 298, score 292:
+Button A: X+98, Y+35
+Button B: X+36, Y+88
+Prize: X=9722, Y=7605
+======
+Game 299, score 0:
+Button A: X+54, Y+25
+Button B: X+31, Y+53
+Prize: X=2530, Y=6336
+======
+Game 300, score 0:
+Button A: X+60, Y+33
+Button B: X+18, Y+35
+Prize: X=12572, Y=11636
+======
+Game 301, score 0:
+Button A: X+13, Y+37
+Button B: X+31, Y+21
+Prize: X=13515, Y=2571
+======
+Game 302, score 0:
+Button A: X+65, Y+30
+Button B: X+11, Y+52
+Prize: X=16322, Y=9004
+======
+Game 303, score 0:
+Button A: X+53, Y+24
+Button B: X+15, Y+49
+Prize: X=13154, Y=3830
+======
+Game 304, score 346:
+Button A: X+11, Y+67
+Button B: X+23, Y+19
+Prize: X=2274, Y=7554
+======
+Game 305, score 0:
+Button A: X+19, Y+55
+Button B: X+68, Y+22
+Prize: X=893, Y=12431
+======
+Game 306, score 0:
+Button A: X+59, Y+33
+Button B: X+21, Y+37
+Prize: X=1450, Y=1460
+======
+Game 307, score 240:
+Button A: X+30, Y+64
+Button B: X+92, Y+49
+Prize: X=4614, Y=5867
+======
+Game 308, score 0:
+Button A: X+73, Y+11
+Button B: X+19, Y+86
+Prize: X=12399, Y=16666
+======
+Game 309, score 114:
+Button A: X+14, Y+47
+Button B: X+34, Y+29
+Prize: X=2468, Y=2666
+======
+Game 310, score 368:
+Button A: X+42, Y+69
+Button B: X+41, Y+15
+Prize: X=7798, Y=7680
+======
+Game 311, score 248:
+Button A: X+11, Y+50
+Button B: X+92, Y+51
+Prize: X=1351, Y=4305
+======
+Game 312, score 0:
+Button A: X+15, Y+46
+Button B: X+32, Y+19
+Prize: X=1226, Y=891
+======
+Game 313, score 152:
+Button A: X+93, Y+64
+Button B: X+25, Y+87
+Prize: X=4196, Y=8890
+======
+Game 314, score 141:
+Button A: X+43, Y+11
+Button B: X+26, Y+93
+Prize: X=2511, Y=4269
+======
+Game 315, score 147:
+Button A: X+48, Y+23
+Button B: X+14, Y+51
+Prize: X=2172, Y=5027
+======
+Game 316, score 357:
+Button A: X+18, Y+72
+Button B: X+99, Y+96
+Prize: X=11349, Y=15696
+======
+Game 317, score 0:
+Button A: X+59, Y+35
+Button B: X+20, Y+45
+Prize: X=12314, Y=16530
+======
+Game 318, score 53:
+Button A: X+67, Y+96
+Button B: X+84, Y+14
+Prize: X=1862, Y=1498
+======
+Game 319, score 167:
+Button A: X+13, Y+90
+Button B: X+66, Y+49
+Prize: X=1957, Y=5390
+
+======
+Part 1:
+29711
+
+
+Part 2:
+None

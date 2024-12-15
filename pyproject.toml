@@ -13,6 +13,7 @@ dependencies = [
     "immutables",
     "ipython",
     "mypy>=1.13.0",
+    "numpy>=2.2.0",
     "pyyaml",
     "requests",
     "types-pyyaml",
