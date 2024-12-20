@@ -181,7 +181,7 @@ class TopoMap:
             for col, value in enumerate(line):
                 result[Point(col, row)] = int(value)
         assert row is not None and col is not None
-        return cls(Map(result), Point(col, row))
+        return cls(Map(result), Point(col + 1, row + 1))
 
     @lru_cache(maxsize=None)
     def reachable_peaks(self, point: Point):

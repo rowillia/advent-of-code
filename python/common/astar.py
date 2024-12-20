@@ -41,18 +41,27 @@ class OptimizeWrapper(Generic[T]):
             )
 
 
+def astar_with_cost(
+    start: T,
+    end: T,
+    heuristic: Callable[[T, T], int],
+    neighbors: Callable[[T], Iterable[Tuple[T, int]]],
+) -> tuple[List[T], int]:
+    wrapped: OptimizeWrapper[T] = OptimizeWrapper(start, end, heuristic, neighbors)
+    result, cost = astar_optimizable(wrapped)  # type: ignore
+    return [x.current for x in result], cost
+
+
 def astar(
     start: T,
     end: T,
     heuristic: Callable[[T, T], int],
     neighbors: Callable[[T], Iterable[Tuple[T, int]]],
 ) -> List[T]:
-    wrapped: OptimizeWrapper[T] = OptimizeWrapper(start, end, heuristic, neighbors)
-    result: List[OptimizeWrapper[T]] = astar_optimizable(wrapped)  # type: ignore
-    return [x.current for x in result]
+    return astar_with_cost(start, end, heuristic, neighbors)[0]
 
 
-def astar_optimizable(start: Optimizable[T]) -> List[T]:
+def astar_optimizable(start: Optimizable[T]) -> tuple[List[T], int]:
     open_list: PriorityQueue[Optimizable[T]] = PriorityQueue()
     path: Dict[Optimizable[T], Tuple[Optimizable[T], int]] = {}
     open_list.push(start, 0)
@@ -66,7 +75,7 @@ def astar_optimizable(start: Optimizable[T]) -> List[T]:
             while node != start:
                 node = path[node][0]
                 result.append(node)
-            return list(reversed(result))  # type: ignore
+            return list(reversed(result)), node_cost  # type: ignore
         for neighbor, weight in node.egress():
             g_cost = node_cost + weight
             existing_neighbor = path.get(neighbor, None)

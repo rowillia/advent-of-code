@@ -230,14 +230,7 @@ How many different positions could you choose for this obstruction?
 
 from dataclasses import dataclass
 
-from python.common.point import Point
-
-CHAR_TO_DIRECTION = [
-    ("^", Point(0, -1)),
-    (">", Point(1, 0)),
-    ("v", Point(0, 1)),
-    ("<", Point(-1, 0)),
-]
+from python.common.point import CHAR_TO_DIRECTION_LIST, Point
 
 
 @dataclass(frozen=True)
@@ -247,10 +240,12 @@ class Guard:
 
     @property
     def directon(self) -> Point:
-        return CHAR_TO_DIRECTION[self.directon_idx][1]
+        return CHAR_TO_DIRECTION_LIST[self.directon_idx][1]
 
     def turn(self) -> "Guard":
-        return Guard(self.location, (self.directon_idx + 1) % len(CHAR_TO_DIRECTION))
+        return Guard(
+            self.location, (self.directon_idx + 1) % len(CHAR_TO_DIRECTION_LIST)
+        )
 
     def move(self) -> "Guard":
         return Guard(self.location + self.directon, self.directon_idx)
@@ -275,8 +270,10 @@ class Maze:
                 elif value != ".":
                     guard = Guard(
                         Point(col, row),
-                        CHAR_TO_DIRECTION.index(
-                            next(val for val in CHAR_TO_DIRECTION if val[0] == value)
+                        CHAR_TO_DIRECTION_LIST.index(
+                            next(
+                                val for val in CHAR_TO_DIRECTION_LIST if val[0] == value
+                            )
                         ),
                     )
 

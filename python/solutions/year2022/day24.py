@@ -5,8 +5,8 @@ from functools import cache, cached_property
 from typing import Dict, Iterable, List, Tuple
 
 import immutables
-from python.common.astar import astar_optimizable
 
+from python.common.astar import astar_optimizable
 from python.common.point import Point
 
 
@@ -164,25 +164,25 @@ class State:
 
 def part1(text: str) -> int | None:
     m = State.parse(text)
-    path: List[State] = astar_optimizable(m)
+    path: List[State] = astar_optimizable(m)[0]
     return len(path) - 1
 
 
 def part2(text: str) -> int | None:
     m = State.parse(text)
-    path: List[State] = astar_optimizable(m)  # type: ignore
+    path: List[State] = astar_optimizable(m)[0]  # type: ignore
     first_half = len(path) - 1
     m = State(
         path[-1].blizzards,
         path[-1].position,
         Maze(m.maze.end, m.maze.start, m.maze.top_left, m.maze.bottom_right),
     )
-    path = astar_optimizable(m)
+    path = astar_optimizable(m)[0]
     go_back = len(path) - 1
     m = State(
         path[-1].blizzards,
         path[-1].position,
         Maze(m.maze.end, m.maze.start, m.maze.top_left, m.maze.bottom_right),
     )
-    path = astar_optimizable(m)
+    path = astar_optimizable(m)[0]
     return first_half + go_back + len(path) - 1

@@ -15,6 +15,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "True"
       UV_LINK_MODE: "copy"
+      ADVENT_RUN_ALL_TESTS: "True"
 
     steps:
       - uses: actions/checkout@v3
