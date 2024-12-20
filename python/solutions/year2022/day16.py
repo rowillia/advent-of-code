@@ -1,11 +1,11 @@
+import re
 from dataclasses import dataclass
 from functools import cache, cached_property
-import re
 from typing import Dict, Iterator, List, Set, Tuple
 
 import immutables
 
-from python.common.astar import astar
+from python.common.graph import astar
 from python.common.priority_queue import PriorityQueue
 
 VALVE_RE = re.compile(

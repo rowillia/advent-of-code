@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Tuple
 
-from python.common.astar import astar
+from python.common.graph import astar
 
 
 @dataclass(frozen=True)

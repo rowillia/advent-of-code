@@ -6,7 +6,7 @@ from typing import Dict, Iterable, List, Tuple
 
 import immutables
 
-from python.common.astar import astar_optimizable
+from python.common.graph import astar_optimizable
 from python.common.point import Point
 
 

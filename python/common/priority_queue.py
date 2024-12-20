@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
-from typing import Dict, List, TypeVar, Generic
-from heapq import heappush, heappop
-
+from heapq import heappop, heappush
+from typing import Dict, Generic, List, TypeVar
 
 T = TypeVar("T")
 
@@ -30,11 +29,14 @@ class PriorityQueue(Generic[T]):
         heappush(self._items, envelope)
 
     def pop(self) -> T:
+        return self.pop_with_priorty()[0]
+
+    def pop_with_priorty(self) -> tuple[T, int]:
         while self._items:
             item = heappop(self._items)
             if not item.is_removed:
                 del self._entries[item.item]
-                return item.item
+                return item.item, item.priority
         raise Exception("Pop from empty queue")
 
     def remove(self, item: T) -> None:

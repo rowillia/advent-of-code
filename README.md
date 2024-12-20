@@ -51,5 +51,5 @@ uv run pytest
 Once you are satisfied with today's answer, generate your answer with:
 
 ```bash
-uv python -m python.run solve
+uv run python -m python.run solve
 ```

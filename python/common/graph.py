@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from functools import cached_property
 from typing import Callable, Dict, Generic, Iterable, List, Protocol, Tuple, TypeVar
 
+from immutables import Map
+
 from python.common.priority_queue import PriorityQueue
 
 T = TypeVar("T")
@@ -83,3 +85,20 @@ def astar_optimizable(start: Optimizable[T]) -> tuple[List[T], int]:
                 path[neighbor] = (node, g_cost)
                 open_list.push(neighbor, g_cost + node.heuristic)
     raise Exception("No path found")
+
+
+def djikstra(
+    start: T,
+    end: T,
+    neighbors: Callable[[T], Iterable[Tuple[T, int]]],
+) -> Map[T, int]:
+    open_list: PriorityQueue[T] = PriorityQueue()
+    result: dict[T, int] = {}
+    open_list.push(start, 0)
+    while open_list:
+        node, cost = open_list.pop_with_priorty()
+        result[node] = cost
+        for neighbor, neighbor_cost in neighbors(node):
+            if neighbor not in result:
+                open_list.push(neighbor, cost + neighbor_cost)
+    return Map(result)
