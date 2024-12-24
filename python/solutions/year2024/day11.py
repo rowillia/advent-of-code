@@ -87,6 +87,7 @@ How many stones would you have after blinking a total of 75 times?
 from functools import lru_cache
 
 
+# %%
 @lru_cache(maxsize=None)
 def count_in_steps(value: int, count: int):
     if count == 0:
