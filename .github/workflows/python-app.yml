@@ -4,44 +4,45 @@
 name: Python application
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    env:
-      PYTHONUNBUFFERED: "True"
-      UV_LINK_MODE: "copy"
-      ADVENT_RUN_ALL_TESTS: "True"
+    test:
+        runs-on: ubuntu-latest
+        env:
+            PYTHONUNBUFFERED: "True"
+            UV_LINK_MODE: "copy"
+            ADVENT_RUN_ALL_TESTS: "True"
 
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  fetch-depth: 1
 
-      - name: Install uv
-        run: curl -LsSf https://astral.sh/uv/install.sh | sh
-        shell: bash
+            - name: Install uv
+              run: curl -LsSf https://astral.sh/uv/install.sh | sh
+              shell: bash
 
-      - uses: actions/cache@v4
-        id: cache-uv
-        with:
-          path: ~/.cache/uv
-          key: ${{ runner.os }}-uv-${{ hashFiles('**/uv.lock') }}
+            - uses: actions/cache@v4
+              id: cache-uv
+              with:
+                  path: ~/.cache/uv
+                  key: ${{ runner.os }}-uv-${{ hashFiles('**/uv.lock') }}
 
-      - name: Install Dependencies
-        run: uv sync
-        shell: bash
+            - name: Install Dependencies
+              run: uv sync
+              shell: bash
 
-      - name: Code Quality
-        run: |
-          uv run pyright .
-          uv run ruff check .
-          uv run ruff format . --check --diff
+            - name: Code Quality
+              run: |
+                  cat /etc/hosts
+                  uv run pyright .
+                  uv run ruff check .
+                  uv run ruff format . --check --diff
 
-      - name: Unit Tests
-        run: |
-          uv run pytest python
+            - name: Unit Tests
+              run: |
+                  uv run pytest python
