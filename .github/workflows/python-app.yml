@@ -39,6 +39,10 @@ jobs:
           uv run ruff check .
           uv run ruff format . --check --diff
 
-      - name: Unit Tests
+      - name: Unit Tests (All Years)
         run: |
-          uv run pytest python
+          echo "🎄 Running all Advent of Code tests 🎄"
+          echo "ADVENT_RUN_ALL_TESTS=$ADVENT_RUN_ALL_TESTS"
+          uv run pytest python -v --tb=short
+        env:
+          ADVENT_RUN_ALL_TESTS: "True"
