@@ -7,7 +7,10 @@ from python.aoc_utils.finder import Day, get_days
 
 def pytest_generate_tests(metafunc: Any) -> None:
     # Add the current year to years from datetime
-    years = [datetime.now().year]
+    current_year = datetime.now().year
+    if datetime.now().month < 12:
+        current_year -= 1
+    years = [current_year]
     if os.getenv("ADVENT_RUN_ALL_TESTS", "").lower() == "true":
         years = None
     days = get_days(years)
