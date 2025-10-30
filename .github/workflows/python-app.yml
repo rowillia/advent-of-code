@@ -18,19 +18,16 @@ jobs:
       ADVENT_RUN_ALL_TESTS: "True"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
       - name: Install uv
-        run: curl -LsSf https://astral.sh/uv/install.sh | sh
-        shell: bash
-
-      - uses: actions/cache@v4
-        id: cache-uv
+        uses: astral-sh/setup-uv@v7
         with:
-          path: ~/.cache/uv
-          key: ${{ runner.os }}-uv-${{ hashFiles('**/uv.lock') }}
+          enable-cache: true
+          cache-dependency-glob: "**/uv.lock"
+          python-version: "3.13"
 
       - name: Install Dependencies
         run: uv sync

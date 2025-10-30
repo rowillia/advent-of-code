@@ -1,5 +1,5 @@
-ARG VARIANT="3.12"
-ARG UV_VERSION=0.5.5
+ARG VARIANT="3.13"
+ARG UV_VERSION=0.9.6
 
 FROM ghcr.io/astral-sh/uv:$UV_VERSION AS uv
 FROM mcr.microsoft.com/vscode/devcontainers/python:${VARIANT}

@@ -4,8 +4,8 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "3.12",
-      "UV_VERSION": "0.5.5"
+      "VARIANT": "3.13",
+      "UV_VERSION": "0.9.6"
     }
   },
   // Add the IDs of extensions you want installed when the container is created.
