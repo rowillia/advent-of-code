@@ -9,6 +9,7 @@ import requests
 import yaml
 from anthropic import Anthropic
 from bs4 import BeautifulSoup, Tag
+from bs4.element import NavigableString
 
 from python.aoc_utils.finder import get_days
 
@@ -19,19 +20,25 @@ def cli() -> None:
 
 
 PARSE_QUESTION_PROMPT = """
-You are helping a user solve problems for the "Advent of Code" challenge.
-You are helping them parse out the test cases from the problem definition above.
-The problem may have 1 or 2 parts.
+Extract the example test case from the Advent of Code problem and format it as YAML.
 
-You should produce a yaml file with 2 fields: input and answers.
-input should contain the problem input, and answers should contain the expected answer for each part.
-input should always be a string, but answer can be any type as long as it can be coerced to a string with type casting.
-Some problems have the same input for both parts.  If the question only has 1 part, only generate 1 input and 1 answer.
-If part 2 has a different input than part 1, make sure to provide that input as well in the input field.  When in doubt,
-provide 2 inputs (using the examples below for the format, use the literal block scalar format `|-` for each entry in input).
+<instructions>
+1. Find the example input in the problem (usually in a code block or after "For example:")
+2. Find the expected answer(s) for the example (usually stated as "the answer is X")
+3. Format as YAML with two fields: `input` and `answers`
 
-Same input, multiple part answer example:
-```
+Rules:
+- Use YAML literal block scalar format `|-` to preserve exact formatting
+- If part 1 and part 2 use the SAME example input: use a single string for `input`
+- If part 1 and part 2 use DIFFERENT example inputs: use a list with two strings for `input`
+- If only one part exists, provide only one answer
+- Preserve all whitespace, newlines, and formatting exactly as shown
+- Answers should be simple values (numbers or strings)
+</instructions>
+
+<examples>
+<example name="Same input for both parts">
+```yaml
 input: |-
   Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
   Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
@@ -42,10 +49,10 @@ answers:
 - 8
 - 2286
 ```
+</example>
 
-
-Different input, different answer example:
-```
+<example name="Different inputs for each part">
+```yaml
 input:
   - |-
     1abc2
@@ -61,13 +68,13 @@ input:
     zoneight234
     7pqrstsixteen
 answers:
-  - 142
-  - 281
+- 142
+- 281
 ```
+</example>
+</examples>
 
-What is the YAML for the provided question above enclosed within the `<advent_of_code_problem>` xml tag?
-
-Only respond with the proprerly formatted yaml in a code block and nothing else.
+Extract the test case from the problem in <advent_of_code_problem> tags above and output only the YAML in a code block.
 """
 
 
@@ -91,7 +98,7 @@ def parse_article(soup: Tag, width: int = 80) -> str:
                 marker = "  * "
 
             # Add marker to beginning of list item
-            if item.string:
+            if item.string and isinstance(item.string, NavigableString):
                 item.string.replace_with(marker + item.string)
             else:
                 item.insert(0, marker)
@@ -141,7 +148,7 @@ def get_test_yaml_from_problem(problem_text: str) -> str:
             },
             {"role": "assistant", "content": f"```yaml\n{yaml_lead_in}"},
         ],
-        model="claude-3-5-sonnet-20241022",
+        model="claude-haiku-4-5",
     )
     result_text = response.content[0].text  # type: ignore
     result_text = result_text.replace("```", "")
