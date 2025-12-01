@@ -71,3 +71,6 @@ def part1(text: str) -> int | None:
 def part2(text: str) -> int | None:
     gears = list(Schematic.parse(text).gears())
     return sum(gears)
+
+
+# %%

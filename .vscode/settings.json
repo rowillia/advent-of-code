@@ -9,8 +9,7 @@
         }
     },
     "python.testing.pytestArgs": [
-        "aoc",
-        "-v"
+        "aoc"
     ],
     "[python]": {
         "editor.codeActionsOnSave": {

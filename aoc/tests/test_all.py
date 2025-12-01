@@ -11,7 +11,7 @@ def pytest_generate_tests(metafunc: Any) -> None:
     if datetime.now().month < 12:
         current_year -= 1
     years = [current_year]
-    if os.getenv("ADVENT_RUN_ALL_TESTS", "").lower() == "true":
+    if os.getenv("ADVENT_RUN_ALL_TESTS", "").lower() != "true":
         years = None
     days = get_days(years)
     metafunc.parametrize("day", [d for d in days], ids=[str(d) for d in days])
