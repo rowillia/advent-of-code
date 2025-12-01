@@ -28,11 +28,6 @@
       }
     }
   },
-  "initializeCommand": "test -f .env || touch .env",
-  "runArgs": [
-    "--env-file",
-    ".env"
-  ],
   "containerEnv": {
     "DISPLAY": "dummy",
     "PYTHONUNBUFFERED": "True",
