@@ -2,6 +2,7 @@
 --- Day 1: Secret Entrance ---
 """
 
+# %%
 from dataclasses import dataclass
 
 year = 2025
@@ -54,3 +55,6 @@ def part2(text: str) -> int | None:
         total += passes
         current = new_pos
     return total
+
+
+# %%

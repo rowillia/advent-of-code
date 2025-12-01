@@ -123,6 +123,15 @@ def convert_to_plain_text(response_text: str, width: int = 80) -> str:
     return result.strip() + "\n"
 
 
+def infer_return_type(answer: object) -> str:
+    """Infer the Python type annotation from an answer value."""
+    if answer is None:
+        return "str"
+    if isinstance(answer, int):
+        return "int"
+    return "str"
+
+
 def get_test_yaml_from_problem(problem_text: str) -> str:
     anthropic_api_key = os.getenv("ANTHROPIC_API_KEY", "")
     default_answer = textwrap.dedent("""\
@@ -225,6 +234,14 @@ def scaffold(day: int | None, year: int | None) -> None:
             directory.mkdir(parents=True)
     input_file = inputs_dir / f"{day:02d}.txt"
     input_file.write_text(day_input)
+
+    # Generate example YAML and infer return types
+    example_yaml_text = get_test_yaml_from_problem(problem_text)
+    example_data = yaml.safe_load(example_yaml_text)
+    answers = example_data.get("answers", []) if example_data else []
+    part1_type = infer_return_type(answers[0] if len(answers) > 0 else None)
+    part2_type = infer_return_type(answers[1] if len(answers) > 1 else None)
+
     solution_file = solutions_dir / f"day{day:02d}.py"
     if not solution_file.exists():
         solution_file.write_text(
@@ -237,7 +254,6 @@ def scaffold(day: int | None, year: int | None) -> None:
                 year = {year}
                 day = {day}
 
-                # %%
                 # Explore with example input
                 inp = example_input(year, day, part=1)
                 answer = example_answer(year, day, part=1)
@@ -245,12 +261,12 @@ def scaffold(day: int | None, year: int | None) -> None:
                 print(f"Expected answer: {{answer}}")
 
                 # %%
-                def part1(text: str) -> str | None:
+                def part1(text: str) -> {part1_type} | None:
                     return None
 
 
                 # %%
-                def part2(text: str) -> str | None:
+                def part2(text: str) -> {part2_type} | None:
                     return None
                 """)
         )
@@ -264,9 +280,7 @@ def scaffold(day: int | None, year: int | None) -> None:
         f.seek(0, 0)
         f.write(f'"""\n{puzzle_title}\n"""\n' + content)
 
-    (examples_dir / f"{day:02d}.yaml").write_text(
-        get_test_yaml_from_problem(problem_text)
-    )
+    (examples_dir / f"{day:02d}.yaml").write_text(example_yaml_text)
 
 
 if __name__ == "__main__":

@@ -33,7 +33,7 @@
     "PYTHONUNBUFFERED": "True",
     "UV_LINK_MODE": "copy"
   },
-  "postCreateCommand": "uv sync --frozen && uv pip install -e .",
+  "postCreateCommand": "uv sync --frozen && uv pip install -e . && echo '\n# Auto-activate venv and source .env\nif [ -f /workspaces/advent-of-code/.env ]; then set -a; source /workspaces/advent-of-code/.env; set +a; fi\nif [ -f /workspaces/advent-of-code/.venv/bin/activate ]; then source /workspaces/advent-of-code/.venv/bin/activate; fi' >> ~/.zshrc",
   "postStartCommand": "uv run pre-commit install",
   "remoteUser": "vscode",
   "features": {
