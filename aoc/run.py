@@ -206,8 +206,14 @@ def scaffold(day: int | None, year: int | None) -> None:
         day_input = ""
         cookies = None
 
-    problem_text = convert_to_plain_text(
-        requests.get(f"https://adventofcode.com/{year}/day/{day}", cookies=cookies).text
+    problem_html = requests.get(
+        f"https://adventofcode.com/{year}/day/{day}", cookies=cookies
+    ).text
+    problem_text = convert_to_plain_text(problem_html)
+    soup = BeautifulSoup(problem_html, "html.parser")
+    title_element = soup.find("h2")
+    puzzle_title = (
+        title_element.get_text().strip() if title_element else f"--- Day {day} ---"
     )
 
     project_dir = Path(__file__).resolve().parent
@@ -256,7 +262,7 @@ def scaffold(day: int | None, year: int | None) -> None:
         if start_index != -1 and end_index != -1:
             content = content[:start_index] + content[end_index:]
         f.seek(0, 0)
-        f.write(f'"""\n{problem_text}"""\n' + content)
+        f.write(f'"""\n{puzzle_title}\n"""\n' + content)
 
     (examples_dir / f"{day:02d}.yaml").write_text(
         get_test_yaml_from_problem(problem_text)

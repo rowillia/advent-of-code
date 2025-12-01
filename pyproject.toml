@@ -28,6 +28,9 @@ dependencies = [
 [dependency-groups]
 dev = ["ipykernel", "jupyter", "pre-commit", "pyright", "pytest", "ruff"]
 
+[project.scripts]
+aoc = "aoc.run:cli"
+
 [tool.setuptools]
 packages = ["aoc"]
 
