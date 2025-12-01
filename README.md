@@ -12,7 +12,7 @@ This works best inside of a VSCode Codespace.
 
 1. Generate the scaffolding for today's question
     ```bash
-    uv run python -m aoc.run scaffold
+    aoc scaffold
     ```
 1. If you didn't specify an ANTHROPIC_API_KEY, Paste the sample input and answer(s) into `examples/{year}/{day}.yaml`.  For example:
 
@@ -51,5 +51,5 @@ uv run pytest
 Once you are satisfied with today's answer, generate your answer with:
 
 ```bash
-uv run python -m aoc.run solve
+aoc solve
 ```

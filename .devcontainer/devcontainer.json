@@ -28,6 +28,7 @@
       }
     }
   },
+  "initializeCommand": "test -f .env || touch .env",
   "runArgs": [
     "--env-file",
     ".env"

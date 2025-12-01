@@ -8,9 +8,6 @@
             "path": "/bin/zsh"
         }
     },
-    "python.testing.pytestArgs": [
-        "aoc"
-    ],
     "[python]": {
         "editor.codeActionsOnSave": {
             "source.fixAll": "explicit",
@@ -20,10 +17,13 @@
         "editor.formatOnSave": true,
         "editor.tabSize": 4
     },
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
     "workbench.colorTheme": "Default Dark+",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
+    "python.testing.pytestArgs": [
+        "aoc"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
 }
