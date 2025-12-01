@@ -27,7 +27,7 @@ jobs:
         with:
           enable-cache: true
           cache-dependency-glob: "**/uv.lock"
-          python-version: "3.13"
+          python-version: "3.14"
 
       - name: Install Dependencies
         run: uv sync
@@ -43,6 +43,6 @@ jobs:
         run: |
           echo "🎄 Running all Advent of Code tests 🎄"
           echo "ADVENT_RUN_ALL_TESTS=$ADVENT_RUN_ALL_TESTS"
-          uv run pytest python -v --tb=short
+          uv run pytest aoc -v --tb=short
         env:
           ADVENT_RUN_ALL_TESTS: "True"

@@ -19,8 +19,8 @@ target/
 inputs
 !/inputs/.keep
 
-/python/inputs/
-!/python/inputs/.keep
+/aoc/inputs/
+!/aoc/inputs/.keep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -80,6 +80,8 @@ __pypackages__/
 
 # Environments
 .env
+.env.real
+.env.tmp
 .venv
 .venv/
 env/
@@ -98,5 +100,7 @@ cython_debug/
 
 # IDE
 .idea/
+.ropeproject/
 
 .ruff_cache/
+.claude/

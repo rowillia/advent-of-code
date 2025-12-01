@@ -1,10 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "advent_of_code"
+name = "aoc"
 version = "0.1.0"
-description = ""
-authors = [{name = "Roy Williams", email =  "roy.williams.iii@gmail.com"}]
+description = "Advent of Code Solutions"
+authors = [{ name = "Roy Williams", email = "roy.williams.iii@gmail.com" }]
 readme = "README.md"
-requires-python = ">= 3.13"
+requires-python = ">= 3.14"
 
 dependencies = [
     "anthropic",
@@ -22,10 +26,14 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = [
-    "ipykernel",
-    "pre-commit",
-    "pyright",
-    "pytest",
-    "ruff",
-]
+dev = ["ipykernel", "jupyter", "pre-commit", "pyright", "pytest", "ruff"]
+
+[tool.setuptools]
+packages = ["aoc"]
+
+[tool.pytest.ini_options]
+testpaths = ["aoc/tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["-ra", "--strict-markers"]

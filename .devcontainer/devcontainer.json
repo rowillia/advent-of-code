@@ -4,8 +4,8 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "3.13",
-      "UV_VERSION": "0.9.6"
+      "VARIANT": "3.14",
+      "UV_VERSION": "0.9.13"
     }
   },
   // Add the IDs of extensions you want installed when the container is created.
@@ -20,20 +20,33 @@
         "tamasfe.even-better-toml",
         "GitHub.copilot",
         "ms-toolsai.jupyter-keymap",
-        "ms-toolsai.jupyter",
-        "shardulm94.trailing-spaces"
+        "ms-toolsai.jupyter"
       ]
     }
   },
+  "runArgs": [
+    "--env-file",
+    ".env"
+  ],
   "containerEnv": {
     "DISPLAY": "dummy",
     "PYTHONUNBUFFERED": "True",
     "UV_LINK_MODE": "copy"
   },
-  "postCreateCommand": "uv sync --frozen",
+  "postCreateCommand": "uv sync --frozen && uv pip install -e .",
   "postStartCommand": "uv run pre-commit install",
   "remoteUser": "vscode",
   "features": {
     "github-cli": "latest"
+  },
+  "secrets": {
+    "ADVENT_SESSION_COOKIE": {
+      "description": "(Optional) Advent of Code Session Cookie, used for pulling down per-user puzzle inputs.",
+      "documentationUrl": "https://adventofcode.com/"
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "(Optional) Anthropic API key for extracting example inputs and answers.",
+      "documentationUrl": "http://console.anthropic.com/"
+    }
   }
 }
