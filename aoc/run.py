@@ -233,10 +233,10 @@ def scaffold(day: int | None, year: int | None) -> None:
 
                 # %%
                 # Explore with example input
-                # inp = example_input(year, day, part=1)
-                # answer = example_answer(year, day, part=1)
-                # print(f"Example input: {{inp[:100]}}...")
-                # print(f"Expected answer: {{answer}}")
+                inp = example_input(year, day, part=1)
+                answer = example_answer(year, day, part=1)
+                print(f"Example input: {{inp[:100]}}...")
+                print(f"Expected answer: {{answer}}")
 
                 # %%
                 def part1(text: str) -> str | None:
@@ -246,12 +246,6 @@ def scaffold(day: int | None, year: int | None) -> None:
                 # %%
                 def part2(text: str) -> str | None:
                     return None
-
-
-                # %%
-                # Test with real input
-                # result = part1(solution_input(year, day))
-                # print(f"Part 1: {{result}}")
                 """)
         )
 
